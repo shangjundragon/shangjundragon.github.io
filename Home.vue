@@ -1,126 +1,92 @@
 <template>
-  <div class="profile-container">
-    <!-- 左侧个人信息 -->
-    <div class="profile-left">
-      <div class="avatar-container">
-        <img class="avatar" src="/avatar.jpg" alt="Profile avatar" />
-      </div>
-      <h1 class="username">Mr.Shang</h1>
-      <p class="tagline">Stay simple.</p>
-    </div>
+  <div :class="['app-container', isDarkMode ? 'dark-mode' : 'light-mode']">
+    <!-- 主题切换按钮 -->
+    <button class="theme-toggle-btn" @click="toggleTheme">
+      <svg v-if="isDarkMode" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon">
+        <circle cx="12" cy="12" r="5"></circle>
+        <line x1="12" y1="1" x2="12" y2="3"></line>
+        <line x1="12" y1="21" x2="12" y2="23"></line>
+        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+        <line x1="1" y1="12" x2="3" y2="12"></line>
+        <line x1="21" y1="12" x2="23" y2="12"></line>
+        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+      </svg>
+      <svg v-else xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon">
+        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+      </svg>
+    </button>
 
-    <!-- 右侧内容区 -->
-    <div class="profile-right">
-      <!-- 社交媒体卡片 -->
-      <div class="cards-container">
-        <div class="card dark-card">
-          <div class="card-content">
-            <h3>星空 @idealclover</h3>
-            <p>打工人</p>
-            <p>全栈开发者</p>
-            <div class="card-footer">
-              <span>关注 · 了解更多</span>
+    <div class="profile-page">
+      <div class="profile-left">
+        <div class="avatar-container">
+          <img src="/avatar.jpg" alt="Profile avatar" class="avatar">
+        </div>
+        <h1 class="username">Shang</h1>
+        <p class="tagline">Stay simple.</p>
+      </div>
+
+      <div class="profile-right">
+        <div class="card info-card">
+          <div class="info-header">
+            <h2 class="info-title">翠翠 @idealclover</h2>
+            <p class="info-description">打工人</p>
+            <p class="info-description">全栈开发者/技术债收藏家/BUG猎人</p>
+          </div>
+          <div class="info-footer">
+            <button class="btn-more">关于我 · 了解更多</button>
+          </div>
+        </div>
+
+        <div class="social-cards">
+          <div class="card social-card douyin">
+            <span class="platform-name">抖音</span>
+            <span class="follower-count">2879 Followers</span>
+          </div>
+
+          <div class="card social-card bilibili">
+            <span class="platform-name">Bilibili</span>
+            <span class="follower-count">1634 Followers</span>
+          </div>
+
+          <div class="card social-card github">
+            <span class="platform-name">GitHub</span>
+            <span class="follower-count">787 Followers</span>
+          </div>
+
+          <div class="card social-card netease">
+            <span class="platform-name">网易云</span>
+            <span class="follower-count">81 Followers</span>
+          </div>
+        </div>
+
+        <div class="card blog-card">
+          <div class="blog-header">
+            <h2 class="blog-title">
+              <span class="blog-icon">📝</span> 博客文章
+            </h2>
+          </div>
+        </div>
+
+        <div class="card blog-content-card">
+          <div class="blog-tabs">
+            <button class="tab-btn active">最新</button>
+            <button class="tab-btn">技术</button>
+            <button class="tab-btn">生活</button>
+            <button class="tab-btn">随想</button>
+            <button class="tab-btn">测评</button>
+          </div>
+
+          <div class="blog-posts">
+            <div class="blog-post">
+              <span class="post-title">咕咕了一年的新个人主页介绍</span>
+              <span class="post-date">2025.03.07</span>
             </div>
-          </div>
-        </div>
-
-        <div class="card blue-card">
-          <div class="card-content">
-            <h3>知乎</h3>
-            <div class="followers">2879 Followers</div>
-          </div>
-        </div>
-
-        <div class="card pink-card">
-          <div class="card-content">
-            <h3>Bilibili</h3>
-            <div class="followers">1634 Followers</div>
-          </div>
-        </div>
-
-        <div class="card dark-card blog-card">
-          <div class="card-content">
-            <h3>博客</h3>
-            <p>记录技术/生活/随想/翻译</p>
-            <p>https://idealclover.top</p>
-            <div class="card-footer">
-              <span>查看博客 · 联系本人</span>
+            <div class="blog-post">
+              <span class="post-title">所以我放弃了双持一兼谈折叠屏手机使用体验</span>
+              <span class="post-date">2024.12.31</span>
             </div>
-          </div>
-        </div>
-
-        <div class="card github-card">
-          <div class="card-content">
-            <h3>GitHub</h3>
-            <div class="followers">786 Followers</div>
-          </div>
-        </div>
-
-        <div class="card red-card">
-          <div class="card-content">
-            <h3>网易云</h3>
-            <div class="followers">81 Followers</div>
-          </div>
-        </div>
-      </div>
-
-      <!-- 博客文章区 -->
-      <div class="blog-section">
-        <div class="section-header">
-          <h3>📝 博客文章</h3>
-        </div>
-
-        <div class="tabs">
-          <div class="tab active">最新</div>
-          <div class="tab">技术</div>
-          <div class="tab">生活</div>
-          <div class="tab">随想</div>
-          <div class="tab">翻译</div>
-        </div>
-
-        <div class="article-list">
-          <div class="article-item">
-            <div class="article-title">站稳了一年的新个人主页介绍</div>
-            <div class="article-date">2025.03.07</div>
-          </div>
-          <div class="article-item">
-            <div class="article-title">所以我教教子女辈——建设折腾新手机使用体验</div>
-            <div class="article-date">2024.12.31</div>
-          </div>
-          <div class="article-item">
-            <div class="article-title">好评榜：轻松生成高质 / 服务评价</div>
-            <div class="article-date">2024.11.17</div>
-          </div>
-          <div class="article-item">
-            <div class="article-title">2024 Q3 总结：关键重量新生命关季</div>
-            <div class="article-date">2024.11.09</div>
-          </div>
-          <div class="article-item">
-            <div class="article-title">运营博客包制作经验分享：打造个人运营 "微生态"</div>
-            <div class="article-date">2024.09.30</div>
-          </div>
-        </div>
-
-        <div class="more-button">
-          <button>查看更多</button>
-        </div>
-      </div>
-
-      <!-- 个人项目区 -->
-      <div class="projects-section">
-        <div class="section-header">
-          <h3>👋 个人项目</h3>
-        </div>
-
-        <div class="projects-container">
-          <div class="project-card blue-project">
-            <h4>精简壁纸 (Android & iOS)</h4>
-          </div>
-          <div class="project-card green-project">
-            <h4>个人日记</h4>
-          </div>
-          <div class="project-card orange-project">
-            <h4>个人食堂</h4>
           </div>
         </div>
       </div>
@@ -128,42 +94,149 @@
   </div>
 </template>
 
-<style scoped>
+<script setup>
+import { ref, onMounted } from 'vue';
+
+const isDarkMode = ref(false);
+
+// 检查当前时间并设置主题
+const checkTimeAndSetTheme = () => {
+  const currentHour = new Date().getHours();
+  // 晚上8点到早上6点使用暗色主题
+  isDarkMode.value = currentHour >= 20 || currentHour < 6;
+};
+
+// 手动切换主题
+const toggleTheme = () => {
+  isDarkMode.value = !isDarkMode.value;
+};
+
+onMounted(() => {
+  // 初始化时检查
+  checkTimeAndSetTheme();
+
+  // 每分钟检查一次时间，以便在临界点自动切换主题
+  setInterval(checkTimeAndSetTheme, 60000);
+});
+</script>
+
+<style>
+:root {
+  --primary-color: #3498db;
+  --secondary-color: #2980b9;
+  --accent-color: #e74c3c;
+  --text-color: #333;
+  --text-secondary: #666;
+  --bg-color: #f5f5f5;
+  --card-bg: #fff;
+  --card-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  --douyin-color: #161823;
+  --bilibili-color: #fb7299;
+  --github-color: #24292e;
+  --netease-color: #c62f2f;
+  --border-radius: 12px;
+  --toggle-btn-bg: #fff;
+  --toggle-btn-color: #333;
+}
+
+.dark-mode {
+  --primary-color: #3498db;
+  --secondary-color: #2980b9;
+  --accent-color: #e74c3c;
+  --text-color: #f5f5f5;
+  --text-secondary: #aaa;
+  --bg-color: #121212;
+  --card-bg: #1e1e1e;
+  --card-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  --douyin-color: #161823;
+  --bilibili-color: #fb7299;
+  --github-color: #333;
+  --netease-color: #c62f2f;
+  --toggle-btn-bg: #333;
+  --toggle-btn-color: #f5f5f5;
+}
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 
 body {
-  background-color: #121212;
-  color: #e0e0e0;
-  line-height: 1.6;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-.profile-container {
+.app-container {
+  min-height: 100vh;
+  background-color: var(--bg-color);
+  padding: 3vw 10vw 0;
+  transition: background-color 0.3s ease;
+  position: relative;
+}
+
+/* 主题切换按钮样式 */
+.theme-toggle-btn {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background-color: var(--toggle-btn-bg);
+  color: var(--toggle-btn-color);
+  border: none;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
   display: flex;
-  flex-direction: column;
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 20px;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  transition: all 0.3s ease;
 }
 
-/* 左侧个人信息 */
+.theme-toggle-btn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+}
+
+.theme-toggle-btn .icon {
+  transition: transform 0.3s ease;
+}
+
+.theme-toggle-btn:hover .icon {
+  transform: rotate(30deg);
+}
+
+.profile-page {
+  margin: 0 auto;
+  display: flex;
+  flex-direction: row;
+  gap: 10vw;
+}
+
 .profile-left {
+  flex: 0 0 250px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-bottom: 30px;
+}
+
+.profile-right {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
 }
 
 .avatar-container {
-  width: 120px;
-  height: 120px;
+  width: 180px;
+  height: 180px;
   border-radius: 50%;
   overflow: hidden;
-  margin-bottom: 15px;
+  margin-bottom: 20px;
 }
 
 .avatar {
@@ -173,240 +246,244 @@ body {
 }
 
 .username {
-  font-size: 24px;
+  font-size: 28px;
   font-weight: 600;
-  margin-bottom: 5px;
+  margin-bottom: 8px;
+  color: var(--text-color);
 }
 
 .tagline {
   font-size: 16px;
-  color: #a0a0a0;
+  color: var(--text-secondary);
   text-align: center;
 }
 
-/* 右侧内容区 */
-.profile-right {
+.card {
+  background-color: var(--card-bg);
+  border-radius: var(--border-radius);
+  box-shadow: var(--card-shadow);
+  padding: 20px;
+  transition: all 0.3s ease;
+}
+
+.info-card {
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
+}
+
+.info-header {
+  margin-bottom: 20px;
+}
+
+.info-title {
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 10px;
+  color: var(--text-color);
+}
+
+.info-description {
+  font-size: 14px;
+  color: var(--text-secondary);
+  line-height: 1.5;
+}
+
+.info-footer {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.btn-more {
+  background-color: #f0f0f0;
+  color: var(--text-secondary);
+  border: none;
+  border-radius: 20px;
+  padding: 8px 16px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.dark-mode .btn-more {
+  background-color: #333;
+}
+
+.btn-more:hover {
+  background-color: #e0e0e0;
+}
+
+.dark-mode .btn-more:hover {
+  background-color: #444;
+}
+
+.social-cards {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
   gap: 20px;
 }
 
-/* 卡片样式 */
-.cards-container {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 15px;
-}
-
-.card {
-  border-radius: 12px;
-  overflow: hidden;
-  padding: 15px;
-  color: white;
-}
-
-.card-content {
+.social-card {
   display: flex;
-  flex-direction: column;
-  height: 100%;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  cursor: pointer;
+  transition: transform 0.2s ease;
 }
 
-.card h3 {
+.social-card:hover {
+  transform: translateY(-5px);
+}
+
+.platform-name {
   font-size: 18px;
+  font-weight: 600;
   margin-bottom: 8px;
+  color: #fff;
 }
 
-.card p {
+.follower-count {
   font-size: 14px;
-  margin-bottom: 5px;
   color: rgba(255, 255, 255, 0.8);
 }
 
-.card-footer {
-  margin-top: auto;
-  font-size: 12px;
-  text-align: right;
-  color: rgba(255, 255, 255, 0.7);
+.douyin {
+  background-color: var(--douyin-color);
 }
 
-.followers {
+.bilibili {
+  background-color: var(--bilibili-color);
+}
+
+.github {
+  background-color: var(--github-color);
+}
+
+.netease {
+  background-color: var(--netease-color);
+}
+
+.blog-card {
+  padding: 15px 20px;
+}
+
+.blog-header {
+  display: flex;
+  align-items: center;
+}
+
+.blog-icon {
+  margin-right: 8px;
+}
+
+.blog-title {
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--text-color);
+}
+
+.blog-content-card {
+  padding: 0;
+  overflow: hidden;
+}
+
+.blog-tabs {
+  display: flex;
+  background-color: #f5f5f5;
+  border-top-left-radius: var(--border-radius);
+  border-top-right-radius: var(--border-radius);
+}
+
+.dark-mode .blog-tabs {
+  background-color: #2a2a2a;
+}
+
+.tab-btn {
+  padding: 12px 20px;
+  background: none;
+  border: none;
   font-size: 16px;
-  font-weight: 500;
-}
-
-/* 卡片颜色 */
-.dark-card {
-  background-color: #1e2430;
-}
-
-.blue-card {
-  background-color: #0077cc;
-}
-
-.pink-card {
-  background-color: #fb7299;
-}
-
-.github-card {
-  background-color: #24292e;
-}
-
-.red-card {
-  background-color: #c62828;
-}
-
-/* 博客文章区 */
-.blog-section {
-  background-color: #1e1e1e;
-  border-radius: 12px;
-  padding: 15px;
-}
-
-.section-header {
-  margin-bottom: 15px;
-}
-
-.tabs {
-  display: flex;
-  overflow-x: auto;
-  margin-bottom: 15px;
-  border-bottom: 1px solid #333;
-}
-
-.tab {
-  padding: 8px 15px;
+  color: var(--text-secondary);
   cursor: pointer;
-  white-space: nowrap;
+  transition: background-color 0.3s ease;
 }
 
-.tab.active {
-  color: white;
-  border-bottom: 2px solid white;
+.tab-btn.active {
+  font-weight: 600;
+  color: var(--text-color);
+  background-color: var(--card-bg);
 }
 
-.article-list {
-  display: flex;
-  flex-direction: column;
+.blog-posts {
+  padding: 15px 20px;
 }
 
-.article-item {
+.blog-post {
   display: flex;
   justify-content: space-between;
-  padding: 12px 0;
+  padding: 15px 0;
+  border-bottom: 1px solid #eee;
+}
+
+.dark-mode .blog-post {
   border-bottom: 1px solid #333;
 }
 
-.article-title {
-  flex: 1;
+.blog-post:last-child {
+  border-bottom: none;
+}
+
+.post-title {
+  font-size: 16px;
+  color: var(--text-color);
+}
+
+.post-date {
   font-size: 14px;
-}
-
-.article-date {
-  font-size: 14px;
-  color: #888;
-  margin-left: 10px;
-}
-
-.more-button {
-  display: flex;
-  justify-content: center;
-  margin-top: 15px;
-}
-
-.more-button button {
-  background-color: #333;
-  color: white;
-  border: none;
-  border-radius: 20px;
-  padding: 8px 20px;
-  cursor: pointer;
-  font-size: 14px;
-}
-
-/* 项目区 */
-.projects-section {
-  background-color: #1e1e1e;
-  border-radius: 12px;
-  padding: 15px;
-}
-
-.projects-container {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 15px;
-}
-
-.project-card {
-  border-radius: 10px;
-  padding: 20px;
-  color: white;
-}
-
-.blue-project {
-  background-color: #1976d2;
-}
-
-.green-project {
-  background-color: #2e7d32;
-}
-
-.orange-project {
-  background-color: #e65100;
+  color: var(--text-secondary);
 }
 
 /* 响应式设计 */
-@media (min-width: 768px) {
-  .profile-container {
-    flex-direction: row;
-    align-items: flex-start;
-    gap: 30px;
-    padding: 40px;
+@media (max-width: 900px) {
+  .profile-page {
+    flex-direction: column;
   }
 
   .profile-left {
-    position: sticky;
-    top: 40px;
-    width: 200px;
-    flex-shrink: 0;
+    flex: 0 0 auto;
+    margin-bottom: 30px;
   }
 
-  .profile-right {
-    flex: 1;
-  }
-
-  .cards-container {
+  .social-cards {
     grid-template-columns: repeat(2, 1fr);
-  }
-
-  .blog-card {
-    grid-column: span 2;
-  }
-
-  .projects-container {
-    grid-template-columns: repeat(3, 1fr);
   }
 }
 
-@media (min-width: 1024px) {
-  .profile-container {
-    padding: 60px;
+@media (max-width: 600px) {
+  .social-cards {
+    grid-template-columns: 1fr;
   }
 
-  .profile-left {
-    width: 250px;
+  .blog-post {
+    flex-direction: column;
+    gap: 8px;
   }
 
-  .avatar-container {
-    width: 150px;
-    height: 150px;
+  .blog-tabs {
+    overflow-x: auto;
+    white-space: nowrap;
   }
 
-  .username {
-    font-size: 28px;
+  .tab-btn {
+    padding: 12px 15px;
   }
 
-  .tagline {
-    font-size: 18px;
+  .theme-toggle-btn {
+    top: 10px;
+    right: 10px;
+    width: 40px;
+    height: 40px;
   }
 }
 </style>

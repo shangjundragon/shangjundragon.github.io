@@ -5,7 +5,7 @@
   "type": "module",
   "main": "index.js",
   "scripts": {
-    "docs:dev": "vitepress dev --host",
+    "docs:dev": "vitepress dev --host --open",
     "docs:build": "vitepress build",
     "docs:preview": "vitepress preview"
   },
