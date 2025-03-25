@@ -68,7 +68,8 @@
 
           <div @click="handleClickSocialCard('netease')" class="card social-card netease">
             <div style="display: flex;gap: 10px;align-items: center">
-              <img src="/assets/img/social/wangyiyunyinle.png" alt="" style="height: 2rem; object-fit: cover;background:white;;">
+              <img src="/assets/img/social/wangyiyunyinle.png" alt=""
+                   style="height: 2rem; object-fit: cover;">
               <span class="platform-name">网易云</span>
             </div>
             <span class="follower-count">1 Followers</span>
@@ -155,7 +156,7 @@ function handleClickSocialCard(socialName) {
   --bg-color: #f5f5f5;
   --card-bg: #fff;
   --card-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  --douyin-color: #161823;
+  --douyin-color: #1a1a2e;
   --bilibili-color: #fb7299;
   --github-color: #24292e;
   --netease-color: #c62f2f;
@@ -173,9 +174,9 @@ function handleClickSocialCard(socialName) {
   --bg-color: #121212;
   --card-bg: #1e1e1e;
   --card-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-  --douyin-color: #161823;
+  --douyin-color: #1a1a2e;
   --bilibili-color: #fb7299;
-  --github-color: #333;
+  --github-color: #24292e;
   --netease-color: #c62f2f;
   --toggle-btn-bg: #333;
   --toggle-btn-color: #f5f5f5;
