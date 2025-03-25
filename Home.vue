@@ -2,7 +2,8 @@
   <div :class="['app-container', isDarkMode ? 'dark-mode' : 'light-mode']">
     <!-- 主题切换按钮 -->
     <button class="theme-toggle-btn" @click="toggleTheme">
-      <svg v-if="isDarkMode" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon">
+      <svg v-if="isDarkMode" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+           stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon">
         <circle cx="12" cy="12" r="5"></circle>
         <line x1="12" y1="1" x2="12" y2="3"></line>
         <line x1="12" y1="21" x2="12" y2="23"></line>
@@ -13,7 +14,8 @@
         <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
         <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
       </svg>
-      <svg v-else xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon">
+      <svg v-else xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+           stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon">
         <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
       </svg>
     </button>
@@ -30,7 +32,7 @@
       <div class="profile-right">
         <div class="card info-card">
           <div class="info-header">
-            <h2 class="info-title">翠翠 @idealclover</h2>
+            <h2 class="info-title">Shang</h2>
             <p class="info-description">打工人</p>
             <p class="info-description">全栈开发者/技术债收藏家/BUG猎人</p>
           </div>
@@ -40,24 +42,36 @@
         </div>
 
         <div class="social-cards">
-          <div class="card social-card douyin">
-            <span class="platform-name">抖音</span>
-            <span class="follower-count">2879 Followers</span>
+          <div @click="handleClickSocialCard('douyin')" class="card social-card douyin">
+            <div style="display: flex;gap: 10px;align-items: center">
+              <img src="/assets/img/social/douyin.png" alt="" style="height: 2rem; object-fit: cover;">
+              <span class="platform-name">抖音</span>
+            </div>
+            <span class="follower-count">1 Followers</span>
           </div>
 
-          <div class="card social-card bilibili">
-            <span class="platform-name">Bilibili</span>
-            <span class="follower-count">1634 Followers</span>
+          <div @click="handleClickSocialCard('bilibili')" class="card social-card bilibili">
+            <div style="display: flex;gap: 10px;align-items: center">
+              <img src="/assets/img/social/bilibili.png" alt="" style="height: 2rem; object-fit: cover;">
+              <span class="platform-name">Bilibili</span>
+            </div>
+            <span class="follower-count">1 Followers</span>
           </div>
 
-          <div class="card social-card github">
-            <span class="platform-name">GitHub</span>
-            <span class="follower-count">787 Followers</span>
+          <div @click="handleClickSocialCard('github')" class="card social-card github">
+            <div style="display: flex;gap: 10px;align-items: center">
+              <img src="/assets/img/social/github.png" alt="" style="height: 2rem; object-fit: cover;">
+              <span class="platform-name">GitHub</span>
+            </div>
+            <span class="follower-count">1 Followers</span>
           </div>
 
-          <div class="card social-card netease">
-            <span class="platform-name">网易云</span>
-            <span class="follower-count">81 Followers</span>
+          <div @click="handleClickSocialCard('netease')" class="card social-card netease">
+            <div style="display: flex;gap: 10px;align-items: center">
+              <img src="/assets/img/social/wangyiyunyinle.png" alt="" style="height: 2rem; object-fit: cover;background:white;;">
+              <span class="platform-name">网易云</span>
+            </div>
+            <span class="follower-count">1 Followers</span>
           </div>
         </div>
 
@@ -95,7 +109,7 @@
 </template>
 
 <script setup>
-import { ref, onMounted } from 'vue';
+import {ref, onMounted} from 'vue';
 
 const isDarkMode = ref(false);
 
@@ -118,6 +132,17 @@ onMounted(() => {
   // 每分钟检查一次时间，以便在临界点自动切换主题
   setInterval(checkTimeAndSetTheme, 60000);
 });
+
+const socialNameLinkConfig = {
+  douyin: ' https://v.douyin.com/Pr7xUhbU_ao/ 7@5.com :0pm',
+  bilibili: 'https://space.bilibili.com/418906839',
+  github: 'https://github.com/shangjundragon',
+  netease: 'https://music.163.com/#/user/home?id=1632792213',
+}
+
+function handleClickSocialCard(socialName) {
+  window.open(socialNameLinkConfig[socialName], '_blank');
+}
 </script>
 
 <style>
