@@ -4,19 +4,56 @@ import {pagefindPlugin} from 'vitepress-plugin-pagefind'
 export default defineConfig({
     base: '/',
     lang: 'zh-CN',
-    title: "Mr.Shang Awesome Project",
+    title: "Great blog by Mr.Shang",
     description: "A VitePress Site",
     head: [['link', {rel: 'icon', href: '/favicon.ico'}]],
     themeConfig: {
-        // https://vitepress.dev/reference/default-theme-config
-        // Nav 是显示在页面顶部的导航栏。它包含站点标题、全局菜单链接等。
         nav: [
             {text: '首页', link: '/'},
+            {
+                text: '文档',
+                items: [
+                    {text: '全部', link: '/src/technology/分组展示'},
+                    {text: '技术', link: '/src/technology/'},
+                    {text: '生活', link: '/src/technology/分组展示'},
+                    {text: '美食', link: '/src/technology/分组展示'},
+                    {text: '随想', link: '/src/technology/分组展示'},
+                    {text: '测评', link: '/src/technology/分组展示'},
+                ]
+            }
         ],
-        // 可以定义此选项以在导航栏中展示带有图标的社交帐户链接。
         socialLinks: [
-            {icon: 'github', link: 'https://github.com/vuejs/vitepress'}
+            {icon: 'github', link: 'https://github.com/shangjundragon'}
         ],
+        sidebar: {
+            '/src/technology/': [
+                {
+                    text: '全部',
+                },
+                {
+                    text: 'Java',
+                    items: [
+                        {
+                            text: 'SpringBoot'
+                        },
+                        {
+                            text: 'SpringCloud'
+                        },
+                    ]
+                },
+                {
+                    text: '前端',
+                },
+                {
+                    text: 'Docker',
+                },
+            ],
+            '/goodfood/': [
+                {
+                    text: '小炒',
+                },
+            ],
+        }
 
     },
     vite: {
