@@ -8,6 +8,9 @@ export default defineConfig({
     description: "A VitePress Site",
     head: [['link', { rel: 'icon', href: '/favicon.ico' }]],
     themeConfig: {
+        search: {
+            provider: 'local'
+        },
         // https://vitepress.dev/reference/default-theme-config
         // Nav 是显示在页面顶部的导航栏。它包含站点标题、全局菜单链接等。
         nav: [
