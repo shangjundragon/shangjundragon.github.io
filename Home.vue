@@ -135,7 +135,7 @@ function handleClickTab(index) {
 
 const activeTabContentList = ref([
   {title: '使用node加puppeteer构建生成pdf的docker镜像', date: '2025.03.20'},
-  {title: '搭建个人博客的一个想法', date: '2025.03.07'},
+  {title: '搭建个人博客的一个想法', date: '2025.03.06'},
 ]);
 onMounted(() => {
   // 初始化时检查
@@ -157,7 +157,7 @@ function handleClickSocialCard(socialName) {
 }
 </script>
 
-<style>
+<style scoped>
 :root {
   --primary-color: #3498db;
   --secondary-color: #2980b9;
