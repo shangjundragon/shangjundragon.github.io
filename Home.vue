@@ -66,7 +66,7 @@
         </div>
 
         <div class="card blog-content-card">
-          <div class="blog-tabs" >
+          <div class="blog-tabs">
             <button class="tab-btn" :class="{ activeTab: activeTabValue === tab.value }" :key="tab.value"
                     @click="handleClickTab(tab)"
                     v-for="tab in tabs">{{ tab.name }}
@@ -105,18 +105,15 @@ const checkTimeAndSetTheme = () => {
   isDarkMode.value = currentHour >= 20 || currentHour < 6;
 };
 
-// 手动切换主题
-const toggleTheme = () => {
-  isDarkMode.value = !isDarkMode.value;
-};
 const router = useRouter();
 
-function handleClickBlog(blog) {
-  console.log('blog', blog)
-  router.go(blog.url)
-}
 
 function handleClickShowMore() {
+  if (activeTabValue.value === 'latest') {
+    router.go(`/src/all`)
+  } else {
+    router.go(`/src/${activeTabValue.value}/all`)
+  }
 
 }
 
@@ -129,6 +126,10 @@ const tabs = ref([
   {name: '测评', value: 'test'},
 ]);
 const activeTabValue = ref('latest');
+
+function handleClickBlog(blog) {
+  router.go(blog.url)
+}
 
 const activeTabLatestBlogList = ref(latestData.latestData);
 
