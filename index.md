@@ -1,7 +1,7 @@
 ---
 layout: page
 title: 主页
-navbar: false
+#navbar: false
 sidebar: false
 ---
 
@@ -9,4 +9,5 @@ sidebar: false
 import Home from './Home.vue'
 </script>
 
-<Home />
+<Home/>
+
