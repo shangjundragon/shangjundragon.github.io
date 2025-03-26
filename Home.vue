@@ -14,10 +14,21 @@
         <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
         <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
       </svg>
-      <svg v-else xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
-           stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon">
-        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+      <!--      <svg v-else xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                 stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon">
+              <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+            </svg >-->
+
+      <svg v-else class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="3759"
+           width="256" height="256">
+        <path
+            d="M483.69664 870.4a368.64 368.64 0 0 1-332.58496-209.408A310.60992 310.60992 0 0 0 273.77664 686.08c166.83008 0 302.08-130.6624 302.08-291.84a290.38592 290.38592 0 0 0-156.0576-255.46752A368.64 368.64 0 1 1 483.69664 870.4z"
+            fill="#FFFFFF" p-id="3760"></path>
+        <path
+            d="M504.17664 890.88a368.64 368.64 0 0 1-332.58496-209.408A310.6304 310.6304 0 0 0 294.25664 706.56c166.83008 0 302.08-130.6624 302.08-291.84a290.38592 290.38592 0 0 0-156.0576-255.46752A368.64 368.64 0 1 1 504.17664 890.88z"
+            fill="#FFCC00" p-id="3761"></path>
       </svg>
+
     </button>
 
     <div class="profile-page">
