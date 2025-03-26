@@ -134,6 +134,7 @@ function handleClickTab(index) {
 }
 
 const activeTabContentList = ref([
+  {title: 'github的actions到底什么鬼？', date: '2025.03.26'},
   {title: '使用node加puppeteer构建生成pdf的docker镜像', date: '2025.03.20'},
   {title: '搭建个人博客的一个想法', date: '2025.03.06'},
 ]);
