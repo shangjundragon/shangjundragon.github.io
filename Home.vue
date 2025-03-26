@@ -23,14 +23,14 @@
         </div>
 
         <div class="social-cards">
-          <div @click="handleClickSocialCard('douyin')" class="card social-card douyin">
+
+          <div @click="handleClickSocialCard('github')" class="card social-card github">
             <div style="display: flex;gap: 10px;align-items: center">
-              <img src="/assets/img/social/douyin.png" alt="" style="height: 2rem; object-fit: cover;">
-              <span class="platform-name">抖音</span>
+              <img src="/assets/img/social/github.png" alt="" style="height: 2rem; object-fit: cover;">
+              <span class="platform-name">GitHub</span>
             </div>
             <span class="follower-count">1 Followers</span>
           </div>
-
           <div @click="handleClickSocialCard('bilibili')" class="card social-card bilibili">
             <div style="display: flex;gap: 10px;align-items: center">
               <img src="/assets/img/social/bilibili.png" alt="" style="height: 2rem; object-fit: cover;">
@@ -39,10 +39,10 @@
             <span class="follower-count">1 Followers</span>
           </div>
 
-          <div @click="handleClickSocialCard('github')" class="card social-card github">
+          <div @click="handleClickSocialCard('douyin')" class="card social-card douyin">
             <div style="display: flex;gap: 10px;align-items: center">
-              <img src="/assets/img/social/github.png" alt="" style="height: 2rem; object-fit: cover;">
-              <span class="platform-name">GitHub</span>
+              <img src="/assets/img/social/douyin.png" alt="" style="height: 2rem; object-fit: cover;">
+              <span class="platform-name">抖音</span>
             </div>
             <span class="follower-count">1 Followers</span>
           </div>
