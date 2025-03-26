@@ -4,10 +4,12 @@ import {pagefindPlugin} from 'vitepress-plugin-pagefind'
 export default defineConfig({
     base: '/',
     lang: 'zh-CN',
-    title: "Great blog by Mr.Shang",
+    title: "Great blog",
+
     description: "A VitePress Site",
     head: [['link', {rel: 'icon', href: '/favicon.ico'}]],
     themeConfig: {
+        logo: '/avatar.jpg',
         nav: [
             {text: '首页', link: '/'},
             {
