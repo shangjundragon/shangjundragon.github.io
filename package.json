@@ -16,5 +16,9 @@
     "lodash-es": "^4.17.21",
     "vitepress": "^1.6.3",
     "vitepress-plugin-pagefind": "^0.4.13"
+  },
+  "devDependencies": {
+    "naive-ui": "^2.41.0",
+    "vfonts": "^0.0.3"
   }
 }
