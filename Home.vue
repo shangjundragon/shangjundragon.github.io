@@ -66,8 +66,8 @@
         </div>
 
         <div class="card blog-content-card">
-          <div class="blog-tabs">
-            <button class="tab-btn" :class="{ active: activeTabValue === tab.value }" :key="tab.value"
+          <div class="blog-tabs" >
+            <button class="tab-btn" :class="{ activeTab: activeTabValue === tab.value }" :key="tab.value"
                     @click="handleClickTab(tab)"
                     v-for="tab in tabs">{{ tab.name }}
             </button>
@@ -363,19 +363,17 @@ body {
   border-top-right-radius: var(--border-radius);
 }
 
-
 .tab-btn {
   padding: 12px 20px;
-  background: none;
   border: none;
   font-size: 16px;
   cursor: pointer;
   transition: background-color 0.3s ease;
 }
 
-.tab-btn.active {
+.tab-btn.activeTab {
   font-weight: 600;
-  background-color: var(--vp-c-bg-elv);
+  background-color: var(--vp-c-success-2);
 }
 
 .blog-posts {
