@@ -114,15 +114,22 @@
 
         <div class="card blog-content-card">
           <div class="blog-tabs">
-            <button class="tab-btn" :class="{ active: activeTabIndex === index }" @click="handleClickTab(index)"
-                    v-for="(tab,index) in tabs">{{ tab.name }}
+            <button class="tab-btn" :class="{ active: activeTabValue === tab.value }" :key="tab.value"
+                    @click="handleClickTab(tab)"
+                    v-for="tab in tabs">{{ tab.name }}
             </button>
           </div>
 
           <div class="blog-posts">
-            <div class="blog-post" :key="index" v-for="(item, index) in activeTabContentList">
-              <span class="post-title">{{ item.title }}</span>
-              <span class="post-date">{{ item.date }}</span>
+            <div style="min-height: 80px">
+              <div @click="handleClickBlog(blog)" class="blog-post" :key="index"
+                   v-for="(blog, index) in activeTabLatestBlogList">
+                <span class="post-title">{{ blog.title }}</span>
+                <span class="post-date">{{ blog.date }}</span>
+              </div>
+            </div>
+            <div class="info-footer">
+              <button @click="handleClickShowMore" class="btn-more">查看更多</button>
             </div>
           </div>
         </div>
@@ -133,6 +140,8 @@
 
 <script setup>
 import {ref, onMounted} from 'vue';
+import {data as latestData} from './.vitepress/datajs/get-latest.data.js'
+import {useRouter} from "vitepress";
 
 const isDarkMode = ref(false);
 
@@ -147,27 +156,38 @@ const checkTimeAndSetTheme = () => {
 const toggleTheme = () => {
   isDarkMode.value = !isDarkMode.value;
 };
+const router = useRouter();
 
-const tabs = ref([
-  {name: '最新'},
-  {name: '技术'},
-  {name: '生活'},
-  {name: '美食'},
-  {name: '随想'},
-  {name: '测评'},
-]);
-const activeTabIndex = ref(0);
-
-function handleClickTab(index) {
-  activeTabIndex.value = index;
+function handleClickBlog(blog) {
+  console.log('blog', blog)
+  router.go(blog.url)
 }
 
-const activeTabContentList = ref([
-  {title: '在 Settings → Pages 中，将 Source 设置为 GitHub Actions，而非分支，避免重复', date: '2025.03.26'},
-  {title: 'github的actions到底什么鬼？', date: '2025.03.26'},
-  {title: '使用node加puppeteer构建生成pdf的docker镜像', date: '2025.03.20'},
-  {title: '搭建个人博客的一个想法', date: '2025.03.06'},
+function handleClickShowMore() {
+
+}
+
+const tabs = ref([
+  {name: '最新', value: 'latest'},
+  {name: '技术', value: 'technology'},
+  {name: '生活', value: 'life'},
+  {name: '美食', value: 'goodfood'},
+  {name: '随想', value: 'randomthoughts'},
+  {name: '测评', value: 'test'},
 ]);
+const activeTabValue = ref('latest');
+
+const activeTabLatestBlogList = ref(latestData.latestData);
+
+function handleClickTab(tab) {
+  activeTabValue.value = tab.value;
+  if (tab.value === 'latest') {
+    activeTabLatestBlogList.value = latestData.latestData;
+  } else {
+    activeTabLatestBlogList.value = latestData.groupsData[tab.value];
+  }
+}
+
 onMounted(() => {
   // 初始化时检查
   checkTimeAndSetTheme();
@@ -363,6 +383,7 @@ body {
 }
 
 .btn-more {
+
   background-color: #f0f0f0;
   color: var(--text-secondary);
   border: none;
