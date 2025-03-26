@@ -92,22 +92,15 @@
 
         <div class="card blog-content-card">
           <div class="blog-tabs">
-            <button class="tab-btn active">最新</button>
-            <button class="tab-btn">技术</button>
-            <button class="tab-btn">生活</button>
-            <button class="tab-btn">美食</button>
-            <button class="tab-btn">随想</button>
-            <button class="tab-btn">测评</button>
+            <button class="tab-btn" :class="{ active: activeTabIndex === index }" @click="handleClickTab(index)"
+                    v-for="(tab,index) in tabs">{{ tab.name }}
+            </button>
           </div>
 
           <div class="blog-posts">
-            <div class="blog-post">
-              <span class="post-title">咕咕了一年的新个人主页介绍</span>
-              <span class="post-date">2025.03.07</span>
-            </div>
-            <div class="blog-post">
-              <span class="post-title">所以我放弃了双持一兼谈折叠屏手机使用体验</span>
-              <span class="post-date">2024.12.31</span>
+            <div class="blog-post" :key="index" v-for="(item, index) in activeTabContentList">
+              <span class="post-title">{{ item.title }}</span>
+              <span class="post-date">{{ item.date }}</span>
             </div>
           </div>
         </div>
@@ -133,6 +126,24 @@ const toggleTheme = () => {
   isDarkMode.value = !isDarkMode.value;
 };
 
+const tabs = ref([
+  {name: '最新'},
+  {name: '技术'},
+  {name: '生活'},
+  {name: '美食'},
+  {name: '随想'},
+  {name: '测评'},
+]);
+const activeTabIndex = ref(0);
+
+function handleClickTab(index) {
+  activeTabIndex.value = index;
+}
+
+const activeTabContentList = ref([
+  {title: '咕咕了一年的新个人主页介绍', date: '2025.03.07'},
+  {title: '所以我放弃了双持一兼谈折叠屏手机使用体验', date: '2024.12.31'},
+]);
 onMounted(() => {
   // 初始化时检查
   checkTimeAndSetTheme();
