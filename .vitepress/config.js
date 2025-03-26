@@ -13,12 +13,12 @@ export default defineConfig({
             {
                 text: '文档',
                 items: [
-                    {text: '全部', link: '/src/technology/分组展示'},
-                    {text: '技术', link: '/src/technology/'},
-                    {text: '生活', link: '/src/technology/分组展示'},
-                    {text: '美食', link: '/src/technology/分组展示'},
-                    {text: '随想', link: '/src/technology/分组展示'},
-                    {text: '测评', link: '/src/technology/分组展示'},
+                    {text: '全部', link: '/src/all'},
+                    {text: '技术', link: '/src/technology/all'},
+                    {text: '生活', link: '/src/life/all'},
+                    {text: '美食', link: '/src/goodfood/all'},
+                    {text: '随想', link: '/src/randomthoughts/all'},
+                    {text: '测评', link: '/src/test/all'},
                 ]
             }
         ],
@@ -27,34 +27,21 @@ export default defineConfig({
         ],
         sidebar: {
             '/src/technology/': [
-                {
-                    text: '全部',
-                },
-                {
-                    text: 'Java',
-                    items: [
-                        {
-                            text: 'SpringBoot'
-                        },
-                        {
-                            text: 'SpringCloud'
-                        },
-                    ]
-                },
-                {
-                    text: '前端',
-                },
-                {
-                    text: 'Docker',
-                },
+                {text: '全部技术文档', link: '/src/technology/all',},
             ],
-            '/goodfood/': [
-                {
-                    text: '小炒',
-                },
+            '/src/life/': [
+                {text: '全部生活文档', link: '/src/life/all',},
+            ],
+            '/src/goodfood/': [
+                {text: '全部美食文档', link: '/src/goodfood/all',},
+            ],
+            '/src/randomthoughts/': [
+                {text: '全部随想文档', link: '/src/randomthoughts/all',},
+            ],
+            '/src/test/': [
+                {text: '全部测评文档', link: '/src/test/all',},
             ],
         }
-
     },
     vite: {
         plugins: [pagefindPlugin()],

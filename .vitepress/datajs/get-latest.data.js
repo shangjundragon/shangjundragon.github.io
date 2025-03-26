@@ -1,7 +1,7 @@
 import {createContentLoader} from 'vitepress'
 import _ from 'lodash-es'
 
-export default createContentLoader('src/*/*.md', {
+export default createContentLoader('src/**/*.md', {
     transform(rawData) {
         const groupsData = {
             technology: [],
@@ -10,12 +10,19 @@ export default createContentLoader('src/*/*.md', {
             test: [],
             randomthoughts: []
         }
-        const mapData = rawData.sort((a, b) => {
-            return +new Date(b.frontmatter.date) - +new Date(a.frontmatter.date)
-        }).map((page) => {
-            const {title, date, tabs} = page.frontmatter
-            return {title, date, tabs, url: page.url}
-        })
+        const mapData = rawData
+            .filter(f => {
+                if (f.frontmatter.exclude && f.frontmatter.exclude === true) {
+                    return false
+                }
+                return true
+            })
+            .sort((a, b) => {
+                return +new Date(b.frontmatter.date) - +new Date(a.frontmatter.date)
+            }).map((page) => {
+                const {title, date, tabs} = page.frontmatter
+                return {title, date, tabs, url: page.url}
+            })
 
         mapData.forEach(f => {
             f.tabs.forEach((tab) => {
