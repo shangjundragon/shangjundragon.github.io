@@ -141,8 +141,8 @@ function handleClickTab(index) {
 }
 
 const activeTabContentList = ref([
-  {title: '咕咕了一年的新个人主页介绍', date: '2025.03.07'},
-  {title: '所以我放弃了双持一兼谈折叠屏手机使用体验', date: '2024.12.31'},
+  {title: '使用node加puppeteer构建生成pdf的docker镜像', date: '2025.03.20'},
+  {title: '搭建个人博客的一个想法', date: '2025.03.07'},
 ]);
 onMounted(() => {
   // 初始化时检查
