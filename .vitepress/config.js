@@ -12,14 +12,16 @@ export default defineConfig({
         logo: '/avatar.jpg',
         nav: [
             {text: '首页', link: '/'},
+            {text: '技术', link: '/src/technology/all'},
+
+            {text: '随想', link: '/src/randomthoughts/all'},
+
             {
-                text: '文档',
+                text: '更多',
                 items: [
                     {text: '全部', link: '/src/all'},
-                    {text: '技术', link: '/src/technology/all'},
                     {text: '生活', link: '/src/life/all'},
                     {text: '美食', link: '/src/goodfood/all'},
-                    {text: '随想', link: '/src/randomthoughts/all'},
                     {text: '测评', link: '/src/test/all'},
                 ]
             }
