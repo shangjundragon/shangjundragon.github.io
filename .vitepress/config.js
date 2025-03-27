@@ -5,10 +5,11 @@ export default defineConfig({
     base: '/',
     lang: 'zh-CN',
     title: "Great blog",
-
+    lastUpdated: true,
     description: "A VitePress Site",
     head: [['link', {rel: 'icon', href: '/favicon.ico'}]],
     themeConfig: {
+        lastUpdated: true,
         logo: '/avatar.jpg',
         nav: [
             {text: '首页', link: '/'},

@@ -1,5 +1,4 @@
 import {createContentLoader} from 'vitepress'
-import _ from 'lodash-es'
 
 export default createContentLoader('src/**/*.md', {
     transform(rawData) {
@@ -12,12 +11,14 @@ export default createContentLoader('src/**/*.md', {
         }
         const mapData = rawData
             .filter(f => {
+                // 过滤掉排除的文档
                 if (f.frontmatter.exclude && f.frontmatter.exclude === true) {
                     return false
                 }
                 return true
             })
             .sort((a, b) => {
+                // 时间倒叙
                 return +new Date(b.frontmatter.date) - +new Date(a.frontmatter.date)
             }).map((page) => {
                 const {title, date, tabs} = page.frontmatter
@@ -37,16 +38,3 @@ export default createContentLoader('src/**/*.md', {
         }
     }
 });
-
-
-/*
-export default {
-    load() {
-        return [
-            {title: '在 Settings → Pages 中，将 Source 设置为 GitHub Actions，而非分支，避免重复', date: '2025.03.25'},
-            {title: 'github的actions到底什么鬼？', date: '2025.03.24'},
-            {title: '使用node加puppeteer构建生成pdf的docker镜像', date: '2025.03.20'},
-            {title: '搭建个人博客的一个想法', date: '2025.03.06'},
-        ]
-    }
-}*/

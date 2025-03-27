@@ -93,7 +93,7 @@
 
 <script setup>
 import {ref, onMounted} from 'vue';
-import {data as latestData} from './.vitepress/datajs/get-latest.data.js'
+import {data as latestData} from './.vitepress/data-js/get-latest.data.js'
 import {useRouter} from "vitepress";
 
 const isDarkMode = ref(false);
