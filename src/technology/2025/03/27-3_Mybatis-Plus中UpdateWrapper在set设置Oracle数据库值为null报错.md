@@ -11,7 +11,9 @@
 ## 问题描述说明
 
 ::: info
-Mybatis-Plus中UpdateWrapper在set设置Oracle数据库值为null报错
+Mybatis-Plus中UpdateWrapper在set设置Oracle数据库值为null报错，
+原因是JdbcType为Other，不被支持。而在Mysql数据库中此操作正常。
+解决方案包括修改全局配置为field-strategy:IGNORE或针对特定字段设置jdbcType。
 :::
 
 ## 解决方案

@@ -12,10 +12,13 @@ export default defineConfig({
         image: {
             // 默认禁用；设置为 true 可为所有图片启用懒加载。
             lazyLoading: true
-        }
+        },
     },
     themeConfig: {
         logo: '/avatar.jpg',
+        outline: {
+            level: [2, 3]
+        },
         nav: [
             {text: '首页', link: '/'},
             {text: '技术', link: '/src/technology/all'},
@@ -37,7 +40,20 @@ export default defineConfig({
         ],
         sidebar: {
             '/src/technology/': [
-                {text: '全部技术文档', link: '/src/technology/all',},
+                {
+                    text: '全部技术文档', link: '/src/technology/all',
+                    items: [
+                        {
+                            text: 'Docker', collapsed: true,
+                            items: [
+                                {text: '快速上手', link: '/src/technology/docker/快速上手'},
+                                {text: '容器相关命令', link: '/src/technology/docker/容器相关命令'},
+                                {text: '镜像相关命令', link: '/src/technology/docker/镜像相关命令'},
+                                {text: 'docker-compose相关命令', link: '/src/technology/docker/docker-compose相关命令'},
+                            ]
+                        }
+                    ]
+                }
             ],
             '/src/life/': [
                 {text: '全部生活文档', link: '/src/life/all',},
