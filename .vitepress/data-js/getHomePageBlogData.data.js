@@ -1,4 +1,6 @@
 import {createContentLoader} from 'vitepress'
+import {transAllData} from "./utils.js";
+
 
 export default createContentLoader('src/**/*.md', {
     transform(rawData) {
@@ -9,30 +11,16 @@ export default createContentLoader('src/**/*.md', {
             test: [],
             randomthoughts: []
         }
-        const mapData = rawData
-            .filter(f => {
-                // 过滤掉排除的文档
-                if (f.frontmatter.exclude && f.frontmatter.exclude === true) {
-                    return false
-                }
-                return true
-            })
-            .sort((a, b) => {
-                // 时间倒叙
-                return +new Date(b.frontmatter.createDate) - +new Date(a.frontmatter.createDate)
-            }).map((page) => {
-                const {title, createDate, tabs} = page.frontmatter
-                return {title, createDate, tabs, url: page.url}
-            })
+        const allData = transAllData(rawData);
 
-        mapData.forEach(f => {
+        allData.forEach(f => {
             f.tabs.forEach((tab) => {
                 if (group[tab].length < 5) {
                     group[tab].push(f)
                 }
             })
         })
-        const latest = mapData.slice(0, 5);
+        const latest = allData.slice(0, 5);
         // 在最新首部插入置顶数据
         latest.unshift({
             createDate: '2025-03-23',

@@ -99,19 +99,9 @@
 </template>
 
 <script setup>
-import {ref, onMounted} from 'vue';
-import {data as blogData} from './.vitepress/data-js/getHomePageBlogData.data.js'
-import {useRouter} from "vitepress";
-
-console.log('blogData', blogData)
-const isDarkMode = ref(false);
-
-// 检查当前时间并设置主题
-const checkTimeAndSetTheme = () => {
-  const currentHour = new Date().getHours();
-  // 晚上8点到早上6点使用暗色主题
-  isDarkMode.value = currentHour >= 20 || currentHour < 6;
-};
+import {ref} from 'vue';
+import {data as blogData} from '@/.vitepress/data-js/getHomePageBlogData.data.js'
+import { useRouter} from "vitepress";
 
 const router = useRouter();
 
@@ -149,14 +139,6 @@ function handleClickTab(tab) {
     activeTabLatestBlogList.value = blogData.group[tab.value];
   }
 }
-
-onMounted(() => {
-  // 初始化时检查
-  checkTimeAndSetTheme();
-
-  // 每分钟检查一次时间，以便在临界点自动切换主题
-  setInterval(checkTimeAndSetTheme, 60000);
-});
 
 const socialNameLinkConfig = {
   douyin: ' https://v.douyin.com/Pr7xUhbU_ao/ 7@5.com :0pm',

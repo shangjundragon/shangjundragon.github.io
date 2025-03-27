@@ -2,7 +2,7 @@
   <img @click="handleClick" :src="src" alt="An image"
        style="object-fit: contain;cursor: pointer"
        :style="{height, margin}"
-  >
+  />
 </template>
 <script setup>
 import {computed} from 'vue'

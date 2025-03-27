@@ -1,5 +1,9 @@
 import {defineConfig} from 'vitepress'
 import {pagefindPlugin} from 'vitepress-plugin-pagefind'
+import AutoImport from 'unplugin-auto-import/vite'
+import {NaiveUiResolver} from 'unplugin-vue-components/resolvers'
+import Components from 'unplugin-vue-components/vite'
+import path from 'path'
 
 export default defineConfig({
     base: '/',
@@ -22,13 +26,12 @@ export default defineConfig({
         nav: [
             {text: '首页', link: '/'},
             {text: '技术', link: '/src/technology/all'},
-
             {text: '随想', link: '/src/randomthoughts/all'},
-
+            {text: '全部', link: '/src/all'},
             {
                 text: '更多',
                 items: [
-                    {text: '全部', link: '/src/all'},
+
                     {text: '生活', link: '/src/life/all'},
                     {text: '美食', link: '/src/goodfood/all'},
                     {text: '测评', link: '/src/test/all'},
@@ -70,6 +73,29 @@ export default defineConfig({
         }
     },
     vite: {
-        plugins: [pagefindPlugin()],
+        resolve: {
+            alias: {
+                '@': path.join(__dirname, '..'),
+            }
+        },
+        plugins: [
+            pagefindPlugin(),
+            AutoImport({
+                imports: [
+                    'vue',
+                    {
+                        'naive-ui': [
+                            'useDialog',
+                            'useMessage',
+                            'useNotification',
+                            'useLoadingBar'
+                        ]
+                    }
+                ]
+            }),
+            Components({
+                resolvers: [NaiveUiResolver()]
+            })
+        ],
     }
 })

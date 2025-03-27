@@ -20,6 +20,8 @@
   },
   "devDependencies": {
     "naive-ui": "^2.41.0",
+    "unplugin-auto-import": "^19.1.2",
+    "unplugin-vue-components": "^28.4.1",
     "vfonts": "^0.0.3"
   }
 }

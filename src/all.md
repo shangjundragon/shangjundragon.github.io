@@ -3,9 +3,12 @@
   "title": "全部文档列表",
   "date": "2025-03-28",
   "tabs": [ ],
-  "layout": 'doc',
+  "layout": 'home',
   "exclude": true
 }
 ---
+<script setup>
+import All from './All.vue'
+</script>
 
-这里会显示全部类型的文档分页列表
+<All/>
