@@ -3,11 +3,13 @@
 
     <div class="profile-page">
       <div class="profile-left">
-        <div class="avatar-container">
-          <img src="/avatar.jpg" alt="Profile avatar" class="avatar">
+        <div class="profile-left-container">
+          <div class="avatar-container">
+            <img src="/avatar.jpg" alt="Profile avatar" class="avatar">
+          </div>
+          <h1 class="username">Shang</h1>
+          <p class="tagline">Stay simple.</p>
         </div>
-        <h1 class="username">Shang</h1>
-        <p class="tagline">Stay simple.</p>
       </div>
 
       <div class="profile-right">
@@ -74,12 +76,12 @@
           </div>
 
           <div class="blog-posts">
-            <div style="min-height: 1rem">
-              <div style="cursor: pointer;position: relative" @click="handleClickBlog(blog)" class="blog-post"
+            <div class="blog-post-container">
+              <div style="cursor: pointer;position: relative;" @click="handleClickBlog(blog)" class="blog-post"
                    :key="index"
                    v-for="(blog, index) in activeTabLatestBlogList">
                 <img v-if="activeTabValue === 'latest' && index === 0 "
-                     style="position: absolute;left: -0.8rem;top: -0.6rem" src="/svg/tu-ding.svg"
+                     style="position: absolute;left: 0;top: 0" src="/svg/tu-ding.svg"
                      alt="" width="30">
                 <span class="post-title">{{ blog.title }}</span>
                 <span class="post-date">{{ blog.createDate.substring(0, 10) }}</span>
@@ -190,7 +192,7 @@ body {
   min-height: 100vh;
   padding: 3vw 10vw 0;
   transition: background-color 0.3s ease;
-  position: relative;
+
 }
 
 .theme-toggle-btn:hover .icon {
@@ -200,12 +202,18 @@ body {
 .profile-page {
   margin: 0 auto;
   display: flex;
-  flex-direction: row;
-  gap: 10vw;
+  justify-content: space-between;
+  gap: 8vw;
+  position: relative;
 }
 
 .profile-left {
   flex: 0 0 250px;
+}
+
+.profile-left-container {
+  padding: 5rem 0;
+  position: fixed;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -219,8 +227,8 @@ body {
 }
 
 .avatar-container {
-  width: 10rem;
-  height: 10rem;
+  width: 12rem;
+  height: 12rem;
   border-radius: 50%;
   overflow: hidden;
   margin-bottom: 20px;
@@ -385,20 +393,30 @@ body {
 
 .blog-posts {
   padding: 15px 20px;
-  background-color: var(--vp-c-bg-elv);
+  background-color: var(--vp-c-bg);
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+
+}
+
+.blog-post-container {
+  min-height: 1rem;
+  max-height: 28rem;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
 }
 
 .blog-post {
   display: flex;
   justify-content: space-between;
-  padding: 15px 0;
-  border-bottom: 1px solid #eee;
+  padding: 1rem;
+  background-color: var(--vp-c-bg-soft);
+  border-radius: var(--border-radius);
 }
 
-
-.blog-post:last-child {
-  border-bottom: none;
-}
 
 .post-title {
   font-size: 16px;
@@ -412,6 +430,12 @@ body {
 @media (max-width: 900px) {
   .profile-page {
     flex-direction: column;
+    gap: 0;
+  }
+
+  .profile-left-container {
+    padding: 0;
+    position: static;
   }
 
   .profile-left {
@@ -427,6 +451,11 @@ body {
 @media (max-width: 600px) {
   .social-cards {
     grid-template-columns: 1fr;
+  }
+
+  .profile-left-container {
+    padding: 0;
+    position: static;
   }
 
   .blog-post {
