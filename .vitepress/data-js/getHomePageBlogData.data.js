@@ -15,6 +15,7 @@ export default createContentLoader('src/**/*.md', {
 
         allData.forEach(f => {
             f.tabs.forEach((tab) => {
+                // 只要5条最新数据
                 if (group[tab].length < 5) {
                     group[tab].push(f)
                 }

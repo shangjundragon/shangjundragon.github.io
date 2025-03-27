@@ -1,3 +1,5 @@
+import {v4 as uuidv4} from 'uuid'
+
 export function transAllData(rawData) {
     return rawData
         .filter(f => {
@@ -12,6 +14,6 @@ export function transAllData(rawData) {
             return +new Date(b.frontmatter.createDate) - +new Date(a.frontmatter.createDate)
         }).map((page) => {
             const {title, createDate, tabs} = page.frontmatter
-            return {title, createDate, tabs, url: page.url}
+            return {title, createDate, tabs, url: page.url, _id: uuidv4()}
         })
 }

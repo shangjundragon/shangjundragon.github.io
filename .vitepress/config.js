@@ -76,9 +76,6 @@ export default defineConfig({
         ssr: {
             noExternal: ["naive-ui"],
         },
-        optimizeDeps: {
-            include: ['naive-ui']
-        },
         resolve: {
             alias: {
                 '@': path.join(__dirname, '..'),
