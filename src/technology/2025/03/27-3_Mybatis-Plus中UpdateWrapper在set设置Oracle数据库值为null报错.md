@@ -11,7 +11,7 @@
 ## 问题描述说明
 
 ::: info
-27-3_Mybatis-Plus中UpdateWrapper在set设置Oracle数据库值为null报错
+Mybatis-Plus中UpdateWrapper在set设置Oracle数据库值为null报错
 :::
 
 ## 解决方案
