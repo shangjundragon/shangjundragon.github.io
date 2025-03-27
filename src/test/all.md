@@ -9,7 +9,7 @@
 ---
 
 <script setup>
-import {data} from '@/.vitepress/data-js/[get-all-test.data.js](../../.vitepress/data-js/get-all-test.data.js)getAllUnExcludeDataAndSort.data.js'
+import {data} from '@/.vitepress/data-js/get-all-test.data.js'
 </script>
 
 <AllBlogPageData :sourceData="data">
