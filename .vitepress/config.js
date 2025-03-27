@@ -9,7 +9,6 @@ export default defineConfig({
     description: "A VitePress Site",
     head: [['link', {rel: 'icon', href: '/favicon.ico'}]],
     themeConfig: {
-        lastUpdated: true,
         logo: '/avatar.jpg',
         nav: [
             {text: '首页', link: '/'},

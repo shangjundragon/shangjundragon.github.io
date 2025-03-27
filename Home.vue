@@ -78,7 +78,7 @@
               <div style="cursor: pointer" @click="handleClickBlog(blog)" class="blog-post" :key="index"
                    v-for="(blog, index) in activeTabLatestBlogList">
                 <span class="post-title">{{ blog.title }}</span>
-                <span class="post-date">{{ blog.date }}</span>
+                <span class="post-date">{{ blog.createDate.substring(0, 10) }}</span>
               </div>
             </div>
             <div class="info-footer">

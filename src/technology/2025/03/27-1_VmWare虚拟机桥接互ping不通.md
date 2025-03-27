@@ -1,11 +1,10 @@
 ---
 {
   title: "VMware虚拟机设置桥接和宿主机互ping不同",
-  date: "2025-03-27",
+  createDate: "2025-03-27",
   tabs: [ 'technology' ],
   sidebar: false,
-  layout: 'doc',
-  lastUpdated: 'Last Updated'
+  layout: 'doc'
 }
 ---
 

@@ -19,10 +19,10 @@ export default createContentLoader('src/**/*.md', {
             })
             .sort((a, b) => {
                 // 时间倒叙
-                return +new Date(b.frontmatter.date) - +new Date(a.frontmatter.date)
+                return +new Date(b.frontmatter.createDate) - +new Date(a.frontmatter.createDate)
             }).map((page) => {
-                const {title, date, tabs} = page.frontmatter
-                return {title, date, tabs, url: page.url}
+                const {title, createDate, tabs} = page.frontmatter
+                return {title, createDate, tabs, url: page.url}
             })
 
         mapData.forEach(f => {
