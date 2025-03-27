@@ -16,9 +16,7 @@
     "lodash-es": "^4.17.21",
     "vitepress": "^1.6.3",
     "vitepress-plugin-pagefind": "^0.4.13",
-    "vue": "^3.5.13"
-  },
-  "devDependencies": {
+    "vue": "^3.5.13",
     "naive-ui": "^2.41.0",
     "unplugin-auto-import": "^19.1.2",
     "unplugin-vue-components": "^28.4.1",

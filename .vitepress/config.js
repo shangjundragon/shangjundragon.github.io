@@ -73,6 +73,12 @@ export default defineConfig({
         }
     },
     vite: {
+        ssr: {
+            noExternal: ["naive-ui"],
+        },
+        optimizeDeps: {
+            include: ['naive-ui']
+        },
         resolve: {
             alias: {
                 '@': path.join(__dirname, '..'),
