@@ -219,8 +219,8 @@ body {
 }
 
 .avatar-container {
-  width: 180px;
-  height: 180px;
+  width: 10rem;
+  height: 10rem;
   border-radius: 50%;
   overflow: hidden;
   margin-bottom: 20px;
