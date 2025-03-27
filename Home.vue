@@ -26,14 +26,14 @@
 
           <div @click="handleClickSocialCard('github')" class="card social-card github">
             <div style="display: flex;gap: 10px;align-items: center">
-              <img src="/assets/img/social/github.png" alt="" style="height: 2rem; object-fit: cover;">
+              <img src="/img/social/github.png" alt="" style="height: 2rem; object-fit: cover;">
               <span class="platform-name">GitHub</span>
             </div>
             <span class="follower-count">1 Followers</span>
           </div>
           <div @click="handleClickSocialCard('bilibili')" class="card social-card bilibili">
             <div style="display: flex;gap: 10px;align-items: center">
-              <img src="/assets/img/social/bilibili.png" alt="" style="height: 2rem; object-fit: cover;">
+              <img src="/img/social/bilibili.png" alt="" style="height: 2rem; object-fit: cover;">
               <span class="platform-name">Bilibili</span>
             </div>
             <span class="follower-count">1 Followers</span>
@@ -41,7 +41,7 @@
 
           <div @click="handleClickSocialCard('douyin')" class="card social-card douyin">
             <div style="display: flex;gap: 10px;align-items: center">
-              <img src="/assets/img/social/douyin.png" alt="" style="height: 2rem; object-fit: cover;">
+              <img src="/img/social/douyin.png" alt="" style="height: 2rem; object-fit: cover;">
               <span class="platform-name">抖音</span>
             </div>
             <span class="follower-count">1 Followers</span>
@@ -49,7 +49,7 @@
 
           <div @click="handleClickSocialCard('netease')" class="card social-card netease">
             <div style="display: flex;gap: 10px;align-items: center">
-              <img src="/assets/img/social/wangyiyunyinle.png" alt=""
+              <img src="/img/social/wangyiyunyinle.png" alt=""
                    style="height: 2rem; object-fit: cover;">
               <span class="platform-name">网易云</span>
             </div>
@@ -75,8 +75,12 @@
 
           <div class="blog-posts">
             <div style="min-height: 1rem">
-              <div style="cursor: pointer" @click="handleClickBlog(blog)" class="blog-post" :key="index"
+              <div style="cursor: pointer;position: relative" @click="handleClickBlog(blog)" class="blog-post"
+                   :key="index"
                    v-for="(blog, index) in activeTabLatestBlogList">
+                <img v-if="activeTabValue === 'latest' && index === 0 "
+                     style="position: absolute;left: -0.8rem;top: -0.6rem" src="/svg/tu-ding.svg"
+                     alt="" width="30">
                 <span class="post-title">{{ blog.title }}</span>
                 <span class="post-date">{{ blog.createDate.substring(0, 10) }}</span>
               </div>
@@ -84,6 +88,7 @@
             <div class="info-footer">
               <button @click="handleClickShowMore" class="btn-more">查看更多</button>
             </div>
+
           </div>
         </div>
       </div>
@@ -93,9 +98,10 @@
 
 <script setup>
 import {ref, onMounted} from 'vue';
-import {data as latestData} from './.vitepress/data-js/get-latest.data.js'
+import {data as blogData} from './.vitepress/data-js/getHomePageBlogData.data.js'
 import {useRouter} from "vitepress";
 
+console.log('blogData', blogData)
 const isDarkMode = ref(false);
 
 // 检查当前时间并设置主题
@@ -131,14 +137,14 @@ function handleClickBlog(blog) {
   router.go(blog.url)
 }
 
-const activeTabLatestBlogList = ref(latestData.latestData);
+const activeTabLatestBlogList = ref(blogData.latest);
 
 function handleClickTab(tab) {
   activeTabValue.value = tab.value;
   if (tab.value === 'latest') {
-    activeTabLatestBlogList.value = latestData.latestData;
+    activeTabLatestBlogList.value = blogData.latest;
   } else {
-    activeTabLatestBlogList.value = latestData.groupsData[tab.value];
+    activeTabLatestBlogList.value = blogData.group[tab.value];
   }
 }
 

@@ -1,6 +1,6 @@
 ---
 {
-  title: "27--Mybatis-Plus使用wrapper将Oracle中字段设置为null报错",
+  title: "Mybatis-Plus使用wrapper将Oracle中字段设置为null报错",
   createDate: "2025-03-27 11:15",
   tabs: [ 'technology' ],
   sidebar: false,
