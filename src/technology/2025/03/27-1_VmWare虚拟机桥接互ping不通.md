@@ -23,5 +23,4 @@
   :::
 
 ## 如果宿主机不想关闭防火墙可以开机imcp（虚拟机未尝试）
-
-<SimpleImgPreview src="/assets/2025/03/27-1.png" height="20vw"/>
+<n-image width="300" object-fit="contain" src="/assets/2025/03/27-1.jpg"/>

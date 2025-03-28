@@ -1,8 +1,6 @@
 import {defineConfig} from 'vitepress'
 import {chineseSearchOptimize, pagefindPlugin} from 'vitepress-plugin-pagefind'
 import AutoImport from 'unplugin-auto-import/vite'
-import {NaiveUiResolver} from 'unplugin-vue-components/resolvers'
-import Components from 'unplugin-vue-components/vite'
 import path from 'path'
 
 export default defineConfig({
@@ -93,21 +91,9 @@ export default defineConfig({
                 customSearchQuery: chineseSearchOptimize
             }),
             AutoImport({
-                imports: [
-                    'vue',
-                    {
-                        'naive-ui': [
-                            'useDialog',
-                            'useMessage',
-                            'useNotification',
-                            'useLoadingBar'
-                        ]
-                    }
-                ]
+                imports: ['vue']
             }),
-            Components({
-                resolvers: [NaiveUiResolver()]
-            })
+
         ],
     }
 })

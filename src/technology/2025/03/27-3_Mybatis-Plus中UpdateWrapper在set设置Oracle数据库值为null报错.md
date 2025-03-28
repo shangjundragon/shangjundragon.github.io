@@ -27,5 +27,4 @@ mybatis-plus:
   configuration:
     jdbc-type-for-null: 'null'
 ``` 
-
-<SimpleImgPreview src="/assets/2025/03/27-2.png" height="20vw"/>
+<n-image width="300" object-fit="contain" src="/assets/2025/03/27-2.jpg"/>
