@@ -28,9 +28,9 @@ export default defineConfig({
         },
         nav: [
             {text: '首页', link: '/'},
+            {text: '全部', link: '/src/all'},
             {text: '技术', link: '/src/technology/all'},
             {text: '随想', link: '/src/randomthoughts/all'},
-            {text: '全部', link: '/src/all'},
             {
                 text: '更多',
                 items: [

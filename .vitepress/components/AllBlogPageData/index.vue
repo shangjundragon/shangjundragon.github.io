@@ -1,6 +1,6 @@
 <template>
   <n-config-provider :theme :locale :date-locale>
-    <div class="page">
+    <div class="page" :style="{padding: computedPadding}">
       <slot></slot>
 
       <div class="contentContainer">
@@ -37,7 +37,14 @@ const props = defineProps({
     type: Array,
     required: true
   },
+  padding: {
+    type: String,
+  }
 });
+
+const computedPadding = computed(() => {
+  return props.padding ? props.padding : '2rem 10% 1rem'
+})
 
 const {isDark} = useData()
 const {theme, locale, dateLocale} = useNaiveUiConfig(isDark);
@@ -73,7 +80,6 @@ function handleClickBlog(item) {
   display: flex;
   flex-direction: column;
   gap: 1rem;
-  padding: 1rem 10vw 10px;
   height: calc(100vh - var(--vp-nav-height));
 }
 
@@ -93,7 +99,7 @@ function handleClickBlog(item) {
   display: flex;
   justify-content: space-between;
   background-color: var(--vp-c-bg-soft);
-  padding: 1rem;
+  padding: 0.8rem 1rem;
   border-radius: var(--border-radius);
   cursor: pointer;
 }
