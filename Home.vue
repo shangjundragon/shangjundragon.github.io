@@ -101,7 +101,7 @@
 <script setup>
 import {ref} from 'vue';
 import {data as blogData} from '@/.vitepress/data-js/getHomePageBlogData.data.js'
-import { useRouter} from "vitepress";
+import {useRouter} from "vitepress";
 
 const router = useRouter();
 
