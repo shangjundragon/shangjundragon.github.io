@@ -4,11 +4,16 @@
           :path="docId"
           :dark="isDark"
           :required-meta="['nick']"
-          reaction
+          :reaction="true"
+          :meta="['nick', 'mail']"
+          :word-limit="1024"
   />
 </template>
 <script setup>
-import {Waline} from '@waline/client/component';
+import * as waline from '@waline/client/component';
+
+console.log('waline', waline)
+const {Waline} = waline
 import '@waline/client/style';
 import {useData} from "vitepress";
 
