@@ -4,17 +4,19 @@
       <div style="margin-top: 24px">
         <Giscus
             :key="page.filePath"
-            repo="Xaviw/XaviDocs"
-            repo-id="R_kgDOGkTukw"
+            repo="shangjundragon/shangjundragon.github.io"
+            repo-id="R_kgDOOOWIdQ"
             category="Announcements"
-            category-id="DIC_kwDOGkTuk84CTopZ"
-            mapping="url"
+            category-id="DIC_kwDOOOWIdc4Coirb"
+            :theme="isDark ? 'dark' : 'light'"
+            mapping="pathname"
             strict="0"
             reactions-enabled="1"
             emit-metadata="0"
             input-position="top"
-            :theme="isDark ? 'dark' : 'light'"
+            loading="lazy"
             lang="zh-CN"
+            crossorigin="anonymous"
         />
       </div>
     </template>
@@ -23,15 +25,15 @@
   </Layout>
 </template>
 
-<script lang="ts" setup>
+<script setup>
 import Giscus from "@giscus/vue";
 import DefaultTheme from "vitepress/theme";
-import { watch } from "vue";
-import { inBrowser, useData } from "vitepress";
+import {watch} from "vue";
+import {inBrowser, useData} from "vitepress";
 
-const { isDark, page } = useData();
+const {isDark, page} = useData();
 
-const { Layout } = DefaultTheme;
+const {Layout} = DefaultTheme;
 
 watch(isDark, (dark) => {
   if (!inBrowser) return;
@@ -41,7 +43,7 @@ watch(isDark, (dark) => {
       ?.shadowRoot?.querySelector("iframe");
 
   iframe?.contentWindow?.postMessage(
-      { giscus: { setConfig: { theme: dark ? "dark" : "light" } } },
+      {giscus: {setConfig: {theme: dark ? "dark" : "light"}}},
       "https://giscus.app"
   );
 });
