@@ -1,5 +1,5 @@
 import {defineConfig} from 'vitepress'
-import {pagefindPlugin} from 'vitepress-plugin-pagefind'
+import {chineseSearchOptimize, pagefindPlugin} from 'vitepress-plugin-pagefind'
 import AutoImport from 'unplugin-auto-import/vite'
 import {NaiveUiResolver} from 'unplugin-vue-components/resolvers'
 import Components from 'unplugin-vue-components/vite'
@@ -85,7 +85,13 @@ export default defineConfig({
             }
         },
         plugins: [
-            pagefindPlugin(),
+            pagefindPlugin({
+                btnPlaceholder: '搜索',
+                placeholder: '搜索文档',
+                emptyText: '空空如也',
+                heading: '共: {{searchResult}} 条结果',
+                customSearchQuery: chineseSearchOptimize
+            }),
             AutoImport({
                 imports: [
                     'vue',
