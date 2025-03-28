@@ -4,7 +4,8 @@ import AllBlogPageData from '/.vitepress/components/AllBlogPageData/index.vue'
 import IconFont from '/.vitepress/components/IconFont/index.vue'
 import './custom.css'
 import '@/public/iconfont/index.js'
-import Layout from '../components/Layout/index.vue'
+import LayoutDocAfterSlot from '../components/LayoutDocAfterSlot/waline.vue'
+//import LayoutDocAfterSlot from '../components/LayoutDocAfterSlot/giscus.vue'
 
 export default {
     extends: DefaultTheme,
@@ -13,5 +14,9 @@ export default {
         app.component('AllBlogPageData', AllBlogPageData)
         app.component('IconFont', IconFont)
     },
-    Layout
+    Layout() {
+        return h(DefaultTheme.Layout, null, {
+            'doc-after': () => h(LayoutDocAfterSlot)
+        })
+    }
 }

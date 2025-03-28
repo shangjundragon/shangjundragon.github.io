@@ -2,6 +2,7 @@ lockfileVersion: 5.4
 
 specifiers:
   '@giscus/vue': ^3.1.1
+  '@waline/client': ^3.5.6
   lodash-es: ^4.17.21
   naive-ui: ^2.41.0
   unplugin-auto-import: ^19.1.2
@@ -14,6 +15,7 @@ specifiers:
 
 dependencies:
   '@giscus/vue': 3.1.1_vue@3.5.13
+  '@waline/client': 3.5.6
   lodash-es: 4.17.21
   naive-ui: 2.41.0_vue@3.5.13
   unplugin-auto-import: 19.1.2
@@ -925,6 +927,17 @@ packages:
       - typescript
     dev: false
 
+  /@vueuse/core/13.0.0_vue@3.5.13:
+    resolution: {integrity: sha512-rkgb4a8/0b234lMGCT29WkCjPfsX0oxrIRR7FDndRoW3FsaC9NBzefXg/9TLhAgwM11f49XnutshM4LzJBrQ5g==}
+    peerDependencies:
+      vue: ^3.5.0
+    dependencies:
+      '@types/web-bluetooth': 0.0.21
+      '@vueuse/metadata': 13.0.0
+      '@vueuse/shared': 13.0.0_vue@3.5.13
+      vue: 3.5.13
+    dev: false
+
   /@vueuse/core/9.13.0_vue@3.5.13:
     resolution: {integrity: sha512-pujnclbeHWxxPRqXWmdkKV5OX4Wk4YeK7wusHqRwU0Q7EFusHoqNA/aPhB6KCh9hEqJkLAJo7bb0Lh9b+OIVzw==}
     dependencies:
@@ -990,6 +1003,10 @@ packages:
     resolution: {integrity: sha512-rAyLGEuoBJ/Il5AmFHiziCPdQzRt88VxR+Y/A/QhJ1EWtWqPBBAxTAFaSkviwEuOEZNtW8pvkPgoCZQ+HxqW1A==}
     dev: false
 
+  /@vueuse/metadata/13.0.0:
+    resolution: {integrity: sha512-TRNksqmvtvqsuHf7bbgH9OSXEV2b6+M3BSN4LR5oxWKykOFT9gV78+C2/0++Pq9KCp9KQ1OQDPvGlWNQpOb2Mw==}
+    dev: false
+
   /@vueuse/metadata/9.13.0:
     resolution: {integrity: sha512-gdU7TKNAUVlXXLbaF+ZCfte8BjRJQWPCa2J55+7/h+yDtzw3vOoGQDRXzI6pyKyo6bXFT5/QoPE4hAknExjRLQ==}
     dev: false
@@ -1002,6 +1019,14 @@ packages:
       - typescript
     dev: false
 
+  /@vueuse/shared/13.0.0_vue@3.5.13:
+    resolution: {integrity: sha512-9MiHhAPw+sqCF/RLo8V6HsjRqEdNEWVpDLm2WBRW2G/kSQjb8X901sozXpSCaeLG0f7TEfMrT4XNaA5m1ez7Dg==}
+    peerDependencies:
+      vue: ^3.5.0
+    dependencies:
+      vue: 3.5.13
+    dev: false
+
   /@vueuse/shared/9.13.0_vue@3.5.13:
     resolution: {integrity: sha512-UrnhU+Cnufu4S6JLCPZnkWh0WwZGUp72ktOF2DFptMlOs3TOdVv8xJN53zhHGARmVOsz5KqOls09+J1NR6sBKw==}
     dependencies:
@@ -1009,6 +1034,26 @@ packages:
     transitivePeerDependencies:
       - '@vue/composition-api'
       - vue
+    dev: false
+
+  /@waline/api/1.0.0:
+    resolution: {integrity: sha512-o0lWjt+/oZH1/4q3DJxTf5kdkgNbSmoLRXIiGznW225A6hq9/9IkOO1DiAijIsxGYJS6psFC+58+IzkD1EerBA==}
+    engines: {node: '>=18'}
+    dev: false
+
+  /@waline/client/3.5.6:
+    resolution: {integrity: sha512-K+mfUpuLilzFUN3G84ytB02v5EkaaU0eOyN6BILcSozjUpSsggbgcy73WBiuUVg8u7pRsIvx192/PclJYvaWCg==}
+    engines: {node: '>=18'}
+    dependencies:
+      '@vueuse/core': 13.0.0_vue@3.5.13
+      '@waline/api': 1.0.0
+      autosize: 6.0.1
+      marked: 15.0.7
+      marked-highlight: 2.2.1_marked@15.0.7
+      recaptcha-v3: 1.11.3
+      vue: 3.5.13
+    transitivePeerDependencies:
+      - typescript
     dev: false
 
   /acorn/8.14.1:
@@ -1052,6 +1097,10 @@ packages:
 
   /async-validator/4.2.5:
     resolution: {integrity: sha512-7HhHjtERjqlNbZtqNqy2rckN/SpOOlmDliet+lP7k+eKZEjPk3DgyeU9lIXLdeLz0uBbbVp+9Qdow9wJWgwwfg==}
+    dev: false
+
+  /autosize/6.0.1:
+    resolution: {integrity: sha512-f86EjiUKE6Xvczc4ioP1JBlWG7FKrE13qe/DxBCpe8GCipCq2nFw73aO8QEBKHfSbYGDN5eB9jXWKen7tspDqQ==}
     dev: false
 
   /binary-extensions/2.3.0:
@@ -1454,6 +1503,20 @@ packages:
     resolution: {integrity: sha512-1I+1qpDt4idfgLQG+BNWmrqku+7/2bi5nLf4YwF8y8zXvmfiTBY3PV3ZibfrjBueCByROpuBjLLFCajqkgYoLQ==}
     dev: false
 
+  /marked-highlight/2.2.1_marked@15.0.7:
+    resolution: {integrity: sha512-SiCIeEiQbs9TxGwle9/OwbOejHCZsohQRaNTY2u8euEXYt2rYUFoiImUirThU3Gd/o6Q1gHGtH9qloHlbJpNIA==}
+    peerDependencies:
+      marked: '>=4 <16'
+    dependencies:
+      marked: 15.0.7
+    dev: false
+
+  /marked/15.0.7:
+    resolution: {integrity: sha512-dgLIeKGLx5FwziAnsk4ONoGwHwGPJzselimvlVskE9XLN4Orv9u2VA3GWw/lYUqjfA0rUT/6fqKwfZJapP9BEg==}
+    engines: {node: '>= 18'}
+    hasBin: true
+    dev: false
+
   /mdast-util-to-hast/13.2.0:
     resolution: {integrity: sha512-QGYKEuUsYT9ykKBCMOEDLsU5JRObWQusAolFMeko/tYPufNkRffBAQjIE+99jbA87xv6FgmjLtwjh9wBWajwAA==}
     dependencies:
@@ -1637,6 +1700,10 @@ packages:
     engines: {node: '>=8.10.0'}
     dependencies:
       picomatch: 2.3.1
+    dev: false
+
+  /recaptcha-v3/1.11.3:
+    resolution: {integrity: sha512-sEE6J0RzUkS+sKEBpgCD/AqCU0ffrAVOADGjvAx9vcttN+VLK42SWMkj/J/I6vHu3Kew+xcfbBqDVb65N0QGDw==}
     dev: false
 
   /regex-recursion/6.0.2:
