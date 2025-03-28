@@ -2,6 +2,7 @@
   <Waline v-if="docId"
           :serverURL="serverURL"
           :path="docId"
+          ref="walineRef"
           :dark="isDark"
           :required-meta="['nick']"
           :reaction="true"
@@ -12,11 +13,12 @@
 <script setup>
 import * as waline from '@waline/client/component';
 
-console.log('waline', waline)
 const {Waline} = waline
+
 import '@waline/client/style';
 import {useData} from "vitepress";
 
+const walineRef = ref(null)
 const docId = ref(undefined)
 const serverURL = 'https://vercel.driedrice.top';
 const {frontmatter, isDark} = useData();
@@ -26,6 +28,8 @@ onMounted(() => {
     const dateId = frontmatter.value.createDate.replace(/[\s:-]/g, '');
     docId.value = hostname === 'localhost' ? 'localhost' + dateId : dateId;
   }
+  console.log('Waline', Waline)
+  console.log('walineRef', walineRef)
 })
 
 </script>
