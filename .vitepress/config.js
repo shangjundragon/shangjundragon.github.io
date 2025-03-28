@@ -19,6 +19,9 @@ export default defineConfig({
         },
     },
     themeConfig: {
+        editLink: {
+            pattern: 'https://github.com/shangjundragon/shangjundragon.github.io/tree/master/:path'
+        },
         logo: '/avatar.jpg',
         outline: {
             level: [2, 3]

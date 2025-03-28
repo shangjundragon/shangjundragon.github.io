@@ -1,7 +1,8 @@
 <template>
-  <div class="page">
-    <slot></slot>
-    <n-config-provider :theme :locale :date-locale>
+  <n-config-provider :theme :locale :date-locale>
+    <div class="page">
+      <slot></slot>
+
       <div class="contentContainer">
         <div @click="handleClickBlog(item)" class="content" v-for="item in dataList" :key="item._id">
           <span>{{ item.title }}</span>
@@ -21,8 +22,9 @@
                     @update:page-size="handleChangePageSize"
       />
 
-    </n-config-provider>
-  </div>
+
+    </div>
+  </n-config-provider>
 </template>
 <script setup>
 
@@ -71,7 +73,7 @@ function handleClickBlog(item) {
   display: flex;
   flex-direction: column;
   gap: 1rem;
-  padding: 1.5rem 10vw 0;
+  padding: 1rem 10vw 10px;
   height: calc(100vh - var(--vp-nav-height));
 }
 
