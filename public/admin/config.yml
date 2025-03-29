@@ -11,6 +11,10 @@ collections:
     label: "Technology" # 在 UI 中使用
     folder: "src/technology" # 存储文档的文件夹路径
     create: true # 允许用户在此集合中创建新文档
+    nested:
+      depth: 10
+    slug: "{{slug}}" # 根据标题自动生成文件名
+    summary: '{{filename}}.md'
     fields: # 每个文档的字段，通常在 front matter 中
       - { label: "布局", name: "layout", widget: "hidden", default: "doc" }
       - { label: "标题", name: "title", widget: "string" }
