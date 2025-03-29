@@ -12,9 +12,7 @@
 </template>
 <script setup>
 import * as waline from '@waline/client/component';
-
 const {Waline} = waline
-
 import '@waline/client/style';
 import {useData} from "vitepress";
 
@@ -28,8 +26,6 @@ onMounted(() => {
     const dateId = frontmatter.value.createDate.replace(/[\s:-]/g, '');
     docId.value = hostname === 'localhost' ? 'localhost' + dateId : dateId;
   }
-  console.log('Waline', Waline)
-  console.log('walineRef', walineRef)
 })
 
 </script>
