@@ -7,24 +7,27 @@ public_folder: /img
 
 collections:
   - name: 'posts'
-    label: '文章管理'
+    label: '博客文章'
     label_singular: '文章'
     folder: 'src/'
     create: true
     nested:
-      depth: 99
-    path: "{{dirname}}/{{slug}}"  # 关键配置：包含路径的文件名
-    slug: '{{slug}}'
-    summary: "{{filename}}" # 显示文件名而非标题
-    editor:
-      preview: true
+      depth: 99  # 允许无限级嵌套目录
+    identifier_field: dirname  # 使用目录路径作为唯一标识
+    summary: "{{dirname}}"  # 显示目录路径
+    sortable_fields: [committer_date]
+    view_filters:
+      - label: 草稿
+        field: draft
+        pattern: true
+    path: "{{dirname}}/{{slug}}"  # 路径包含目录结构
+    slug: "{{fields.slug}}"
     fields:
-      - { label: '标题', name: 'title', widget: 'string' }
-      - { label: '正文', name: 'body', widget: 'markdown' }
-      - name: 'dir'
-        label: '文件路径'
-        widget: 'relation'
-        collection: 'posts'
-        search_fields: [ 'dir' ]
-        value_field: '{{dirname}}'
-        required: false
+      - { label: "目录路径", name: "dirname", widget: "string", required: false }
+      - { label: "Slug", name: "slug", widget: "string" }
+      - { label: "标题", name: "title", widget: "string" }
+      - { label: "正文", name: "body", widget: "markdown" }
+    view_groups:
+      - label: 目录结构
+        field: dirname
+        pattern: ".*"
