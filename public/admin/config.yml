@@ -10,13 +10,34 @@ collections:
     label: '博客文章'
     label_singular: '文章'
     folder: 'src/'
-    slug: '{{dirname}}/{{slug}}'
-    create: true
-    nested:
-      depth: 99
-    summary: "{{filename}}.{{extension}}"
-    editor:
-      preview: false
+    type: 'directory'  # 关键配置：启用目录模式
+    identifier_field: 'title'
+    filter: '(.*)\.md$'  # 正则匹配所有md文件
     fields:
       - { label: "标题", name: "title", widget: "string" }
       - { label: "正文", name: "body", widget: "markdown" }
+
+    # 目录树配置
+    view:
+      tree:
+        key: 'dirname'  # 按目录结构分组
+        value: '{{dirname}}'  # 显示完整路径
+
+    # 文件路径生成规则
+    slug: '{{dirname}}/{{slug}}'
+    path: '{{dirname}}/{{slug}}'
+
+    # 允许创建嵌套目录
+    create: true
+    nested:
+      depth: 99
+      summary: '目录 > {{dirname}}'
+
+    # 文件过滤配置
+    files:
+      - label: '文章'
+        name: 'article'
+        file: '{{dirname}}/{{slug}}.md'
+        fields:
+          - { label: "标题", name: "title", widget: "string" }
+          - { label: "正文", name: "body", widget: "markdown" }
