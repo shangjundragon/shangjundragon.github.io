@@ -6,7 +6,7 @@ media_folder: public/img  # 保持图片存储在静态目录
 public_folder: /img
 
 collections:
-  - name: 'guide'
+  - name: 'posts'
     label: '文章管理'
     label_singular: '文章'
     folder: 'src/'
@@ -18,6 +18,12 @@ collections:
     editor:
       preview: false
     fields:
-      - { label: 'Title', name: 'title', widget: 'string' }
-      - { label: 'Description', name: 'description', widget: 'string' }
-      - { label: 'Body', name: 'body', widget: 'markdown' }
+      - { label: '标题', name: 'title', widget: 'string' }
+      - { label: '正文', name: 'body', widget: 'markdown' }
+      - name: 'dir'
+        label: '文件路径'
+        widget: 'relation'
+        collection: 'posts'
+        search_fields: [ 'dir' ]
+        value_field: '{{dirname}}'
+        required: false
