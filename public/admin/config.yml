@@ -27,18 +27,19 @@ collections:
   - name: pages
     label: Pages
     label_singular: 'Page'
-    folder: src
+    folder: src/pages
     create: true
     # adding a nested object will show the collection folder structure
     nested:
       depth: 100 # max depth to show in the collection tree
-      summary: "{{filename}}.md" # optional summary for a tree node, defaults to the inferred title field
+      summary: '{{title}}' # optional summary for a tree node, defaults to the inferred title field
     fields:
-      - { label: "布局", name: "layout", widget: "string", default: "doc" }
-      - { label: "标题", name: "title", widget: "string" }
-      - { label: "分类", name: "tabs", widget: list }
-      - { label: "发布时间", name: "createDate", widget: "string" }
-      - { label: "正文", name: "body", widget: "markdown" }
+      - label: Title
+        name: title
+        widget: string
+      - label: Body
+        name: body
+        widget: markdown
     # adding a meta object with a path property allows editing the path of entries
     # moving an existing entry will move the entire sub tree of the entry to the new location
     meta: { path: { widget: string, label: 'Path', index_file: 'index' } }
