@@ -1,13 +1,12 @@
 ---
-{
-  title: "Mybatis-Plus使用wrapper将Oracle中字段设置为null报错",
-  createDate: "2025-03-27 11:15",
-  tabs: [ 'technology' ],
-  sidebar: false,
-  layout: 'doc'
-}
+title: Mybatis-Plus使用wrapper将Oracle中字段设置为null报错
+createDate: 2025-03-27 11:15
+tabs:
+  - technology
+sidebar: false
+layout: doc
+description: CMS修改测试
 ---
-
 ## 问题描述说明
 
 ::: info
@@ -26,5 +25,6 @@ Mybatis-Plus中UpdateWrapper在set设置Oracle数据库值为null报错，
 mybatis-plus:
   configuration:
     jdbc-type-for-null: 'null'
-``` 
-<n-image width="300" object-fit="contain" src="/assets/2025/03/27-2.jpg"/>
+```
+
+<n-image width="300" object-fit="contain" src="/assets/2025/03/27-2.png"/>
