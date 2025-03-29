@@ -28,11 +28,12 @@ collections:
     label: Pages
     label_singular: 'Page'
     folder: src/pages
+    summary: '{{filename}}.md' # optional summary for a tree node, defaults to the inferred title field
     create: true
     # adding a nested object will show the collection folder structure
     nested:
       depth: 100 # max depth to show in the collection tree
-      summary: '{{filename}}.md' # optional summary for a tree node, defaults to the inferred title field
+      # summary: '{{filename}}.md' # optional summary for a tree node, defaults to the inferred title field
     fields:
       - label: Title
         name: title
