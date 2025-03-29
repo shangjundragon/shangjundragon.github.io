@@ -7,10 +7,14 @@ public_folder: /img
 
 collections:
   - name: 'guide'
-    label: 'Guide'
+    label: '文章管理'
+    label_singular: '文章'
     folder: 'src'
     create: true
+    nested:
+      depth: 99
     slug: '{{slug}}'
+    summary: "{{title}} - {{dirname}}"
     editor:
       preview: false
     fields:
