@@ -37,7 +37,7 @@ collections:
     fields:
       - { label: "布局", name: "layout", widget: "string", default: "doc" }
       - { label: "标题", name: "title", widget: "string" }
-      - { label: "分类", name: "tabs", widget: list }
+      - { label: "分类1", name: "tabs", widget: list }
       - { label: "发布时间", name: "createDate", widget: "string" }
       - { label: "正文", name: "body", widget: "markdown" }
         #- label: 文档标题
