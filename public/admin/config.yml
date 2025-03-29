@@ -16,7 +16,7 @@ collections:
     fields:
       - { label: "布局", name: "layout", widget: "string", default: "doc",required: true }
       - { label: "标题", name: "title", widget: "string",required: true }
-      - { label: "发布时间", name: "createDate", widget: "string",required: true }
+      - { label: "发布时间", name: "createDate", widget: "string",required: true,default: "20XX-XX-XX XX:XX" }
       - { label: "分类", name: "tabs", widget: "string",default: "technology,",required: true }
       - { label: "Body", name: "body", widget: "markdown" }
   - name: "Good Food Blog" # Used in routes, e.g., /admin/collections/blog
@@ -28,7 +28,7 @@ collections:
     fields:
       - { label: "布局", name: "layout", widget: "string", default: "doc",required: true }
       - { label: "标题", name: "title", widget: "string",required: true }
-      - { label: "发布时间", name: "createDate", widget: "string",required: true }
+      - { label: "发布时间", name: "createDate", widget: "string",required: true,default: "20XX-XX-XX XX:XX" }
       - { label: "分类", name: "tabs", widget: "string",default: "goodfood,",required: true }
       - { label: "Body", name: "body", widget: "markdown" }
   - name: "Life Blog" # Used in routes, e.g., /admin/collections/blog
@@ -40,7 +40,7 @@ collections:
     fields:
       - { label: "布局", name: "layout", widget: "string", default: "doc",required: true }
       - { label: "标题", name: "title", widget: "string",required: true }
-      - { label: "发布时间", name: "createDate", widget: "string",required: true }
+      - { label: "发布时间", name: "createDate", widget: "string",required: true,default: "20XX-XX-XX XX:XX" }
       - { label: "分类", name: "tabs", widget: "string",default: "life,",required: true }
       - { label: "Body", name: "body", widget: "markdown" }
   - name: "Random Thoughts Blog" # Used in routes, e.g., /admin/collections/blog
@@ -52,7 +52,7 @@ collections:
     fields:
       - { label: "布局", name: "layout", widget: "string", default: "doc",required: true }
       - { label: "标题", name: "title", widget: "string",required: true }
-      - { label: "发布时间", name: "createDate", widget: "string",required: true }
+      - { label: "发布时间", name: "createDate", widget: "string",required: true,default: "20XX-XX-XX XX:XX" }
       - { label: "分类", name: "tabs", widget: "string",default: "randomthoughts,",required: true }
       - { label: "Body", name: "body", widget: "markdown" }
   - name: "Test Blog" # Used in routes, e.g., /admin/collections/blog
@@ -64,6 +64,6 @@ collections:
     fields:
       - { label: "布局", name: "layout", widget: "string", default: "doc",required: true }
       - { label: "标题", name: "title", widget: "string",required: true }
-      - { label: "发布时间", name: "createDate", widget: "string",required: true }
+      - { label: "发布时间", name: "createDate", widget: "string",required: true,default: "20XX-XX-XX XX:XX" }
       - { label: "分类", name: "tabs", widget: "string",default: "test,",required: true }
       - { label: "Body", name: "body", widget: "markdown" }
