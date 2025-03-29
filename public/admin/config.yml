@@ -10,18 +10,13 @@ collections:
     label: '博客文章'
     label_singular: '文章'
     folder: 'src/'
+    slug: '{{year}}-{{month}}-{{day}}-{{slug}}'
     create: true
     nested:
       depth: 99  # 允许无限级嵌套目录
-    identifier_field: dirname  # 使用目录路径作为唯一标识
     summary: "{{slug}}"
     sortable_fields: [committer_date]
-    view_filters:
-      - label: 草稿
-        field: draft
-        pattern: true
     path: "{{dirname}}/{{slug}}"  # 路径包含目录结构
-    slug: "{{fields.slug}}"
     fields:
       - { label: "标题", name: "title", widget: "string" }
       - { label: "正文", name: "body", widget: "markdown" }

@@ -37,6 +37,7 @@ export default defineConfig({
                     {text: '生活', link: '/src/life/all'},
                     {text: '美食', link: '/src/goodfood/all'},
                     {text: '测评', link: '/src/test/all'},
+                    {text: 'CMS', link: 'https://shangjundragon.netlify.app/admin/index.html'},
                 ]
             }
         ],
