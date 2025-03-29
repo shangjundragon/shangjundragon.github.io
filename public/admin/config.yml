@@ -14,9 +14,10 @@ collections:
     nested:
       depth: 10
     slug: "{{slug}}" # 根据标题自动生成文件名
-    summary: '{{filename}}.md'
+    summary: "{{filename}}.md"
     fields: # 每个文档的字段，通常在 front matter 中
-      - { label: "布局", name: "layout", widget: "hidden", default: "doc" }
+      - { label: "布局", name: "layout", widget: "string", default: "doc" }
       - { label: "标题", name: "title", widget: "string" }
+      - { label: "分类", name: "tabs", widget: list }
       - { label: "发布时间", name: "createDate", widget: "string" }
       - { label: "正文", name: "body", widget: "markdown" }
