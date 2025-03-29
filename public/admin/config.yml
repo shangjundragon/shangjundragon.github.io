@@ -1,20 +1,20 @@
 backend:
   name: git-gateway
-  branch: master
+  branch: master # Branch to update (optional; defaults to master)
 
-media_folder: public/img
-public_folder: /img
+# These lines should *not* be indented
+media_folder: "public/img"
+public_folder: "/img"
 
 collections:
-  - name: "pages"
-    label: "All Pages"
-    files: # 使用 files 而非 folder 实现递归扫描
-      - label: "Page"
-        name: "page"
-        file: "src/**/*.md"  # 匹配 docs 下所有层级的 .md 文件
-        fields:
-          - { name: "title", label: "标题", widget: "string" }
-          - { name: "content", label: "正文", widget: "markdown" }
-    nested:
-      depth: 20  # 允许无限级嵌套目录
-      summary: "{{title}} ({{path}})"  # 显示目录树时展示路径
+  - name: "technology" # 用于路由，例如，/admin/collections/blog
+    label: "Technology" # 在 UI 中使用
+    folder: "src/technology" # 存储文档的文件夹路径
+    create: true # 允许用户在此集合中创建新文档
+    fields: # 每个文档的字段，通常在 front matter 中
+      - { label: "布局", name: "layout", widget: "hidden", default: "doc" }
+      - { label: "标题", name: "title", widget: "string" }
+      - { label: "发布日期", name: "date", widget: "datetime" }
+      - { label: "缩略图", name: "thumbnail", widget: "image" }
+      - { label: "评分（1-5 的范围）", name: "rating", widget: "number" }
+      - { label: "正文", name: "body", widget: "markdown" }
