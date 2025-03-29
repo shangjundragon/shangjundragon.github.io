@@ -14,7 +14,5 @@ collections:
     fields: # 每个文档的字段，通常在 front matter 中
       - { label: "布局", name: "layout", widget: "hidden", default: "doc" }
       - { label: "标题", name: "title", widget: "string" }
-      - { label: "发布日期", name: "date", widget: "datetime" }
-      - { label: "缩略图", name: "thumbnail", widget: "image" }
-      - { label: "评分（1-5 的范围）", name: "rating", widget: "number" }
+      - { label: "发布时间", name: "createDate", widget: "string" }
       - { label: "正文", name: "body", widget: "markdown" }
