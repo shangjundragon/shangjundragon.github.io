@@ -9,10 +9,10 @@ public_folder: "/img"
 collections:
   - name: "Technology Blog" # Used in routes, e.g., /admin/collections/blog
     label: "技术文档" # Used in the UI
-    folder: "src/technology/blog"
+    folder: "src/technology/date-blog"
     create: true # Allow users to create new documents in this collection
     slug: "{{year}}-{{month}}-{{day}}-{{slug}}" # Filename template, e.g., YYYY-MM-DD-title.md
-    path: '{{year}}/{{slug}}'
+    path: '{{year}}/{{month}}/{{slug}}'
     summary: "{{filename}}.md"
     fields:
       - { label: "布局", name: "layout", widget: "string", default: "doc",required: true }
@@ -22,9 +22,10 @@ collections:
       - { label: "Body", name: "body", widget: "markdown" }
   - name: "Good Food Blog" # Used in routes, e.g., /admin/collections/blog
     label: "美食文档" # Used in the UI
-    folder: "src/goodfood/blog"
+    folder: "src/goodfood/date-blog"
     create: true # Allow users to create new documents in this collection
     slug: "{{year}}-{{month}}-{{day}}-{{slug}}" # Filename template, e.g., YYYY-MM-DD-title.md
+    path: '{{year}}/{{month}}/{{slug}}'
     summary: "{{filename}}.md"
     fields:
       - { label: "布局", name: "layout", widget: "string", default: "doc",required: true }
@@ -34,9 +35,10 @@ collections:
       - { label: "Body", name: "body", widget: "markdown" }
   - name: "Life Blog" # Used in routes, e.g., /admin/collections/blog
     label: "生活文档" # Used in the UI
-    folder: "src/life/blog"
+    folder: "src/life/date-blog"
     create: true # Allow users to create new documents in this collection
     slug: "{{year}}-{{month}}-{{day}}-{{slug}}" # Filename template, e.g., YYYY-MM-DD-title.md
+    path: '{{year}}/{{month}}/{{slug}}'
     summary: "{{filename}}.md"
     fields:
       - { label: "布局", name: "layout", widget: "string", default: "doc",required: true }
@@ -46,9 +48,10 @@ collections:
       - { label: "Body", name: "body", widget: "markdown" }
   - name: "Random Thoughts Blog" # Used in routes, e.g., /admin/collections/blog
     label: "随想文档" # Used in the UI
-    folder: "src/randomthoughts/blog"
+    folder: "src/randomthoughts/date-blog"
     create: true # Allow users to create new documents in this collection
     slug: "{{year}}-{{month}}-{{day}}-{{slug}}" # Filename template, e.g., YYYY-MM-DD-title.md
+    path: '{{year}}/{{month}}/{{slug}}'
     summary: "{{filename}}.md"
     fields:
       - { label: "布局", name: "layout", widget: "string", default: "doc",required: true }
@@ -58,9 +61,10 @@ collections:
       - { label: "Body", name: "body", widget: "markdown" }
   - name: "Test Blog" # Used in routes, e.g., /admin/collections/blog
     label: "测评文档" # Used in the UI
-    folder: "src/test/blog"
+    folder: "src/test/date-blog"
     create: true # Allow users to create new documents in this collection
     slug: "{{year}}-{{month}}-{{day}}-{{slug}}" # Filename template, e.g., YYYY-MM-DD-title.md
+    path: '{{year}}/{{month}}/{{slug}}'
     summary: "{{filename}}.md"
     fields:
       - { label: "布局", name: "layout", widget: "string", default: "doc",required: true }
