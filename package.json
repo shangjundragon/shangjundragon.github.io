@@ -15,6 +15,7 @@
   "dependencies": {
     "@giscus/vue": "^3.1.1",
     "@waline/client": "^3.5.6",
+    "decap-cms": "^3.6.2",
     "decap-cms-app": "^3.6.2",
     "lodash-es": "^4.17.21",
     "naive-ui": "^2.41.0",
