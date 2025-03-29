@@ -14,7 +14,7 @@ collections:
     create: true
     nested:
       depth: 99  # 允许无限级嵌套目录
-    summary: "{{{dirname}}/{{filename}}.{{extension}}"
+    summary: "{{filename}}.{{extension}}"
     sortable_fields: [committer_date]
     path: "{{dirname}}/{{slug}}"  # 路径包含目录结构
     fields:
