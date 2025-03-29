@@ -2,7 +2,7 @@ backend:
   name: git-gateway
   branch: master
 
-media_folder: public/img  # 保持图片存储在静态目录
+media_folder: public/img
 public_folder: /img
 
 collections:
@@ -10,12 +10,16 @@ collections:
     label: '博客文章'
     label_singular: '文章'
     folder: 'src/'
-    slug: '{{year}}-{{month}}-{{day}}-{{slug}}'
+    slug: '{{dirname}}/{{slug}}'
     create: true
     nested:
-      depth: 99  # 允许无限级嵌套目录
-    summary: "{{filename}}.{{extension}}"
-    path: "{{dirname}}/{{slug}}"  # 路径包含目录结构
+      depth: 99
+    filter:
+      field: extension
+      value: md
+    summary: "{{filename}}"
+    editor:
+      preview: false
     fields:
       - { label: "标题", name: "title", widget: "string" }
       - { label: "正文", name: "body", widget: "markdown" }
