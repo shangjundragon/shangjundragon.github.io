@@ -10,6 +10,7 @@ export default defineConfig({
     lastUpdated: true,
     description: "A VitePress Site",
     head: [['link', {rel: 'icon', href: '/favicon.ico'}]],
+    srcExclude: ['admin/**'],  // 排除 admin 目录
     markdown: {
         image: {
             // 默认禁用；设置为 true 可为所有图片启用懒加载。
