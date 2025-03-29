@@ -2,7 +2,7 @@
 title: pages-all-doc
 createDate: "20"
 tabs:
-  - "['goodfood']"
+  - goodfood
 layout: doc
 ---
 \# 为什么有个杠
