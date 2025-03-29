@@ -18,7 +18,7 @@ export function transAllData(rawData) {
             return {
                 title,
                 createDate,
-                tabs: typeof tabs === 'string' ? tabs.split(',') : tabs,
+                tabs: typeof tabs === 'string' ? tabs.split(',').filter(f => f) : tabs,
                 url: page.url, _id: uuidv4()
             }
         })
