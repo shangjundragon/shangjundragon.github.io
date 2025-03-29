@@ -12,6 +12,7 @@ collections:
     folder: "src/technology/blog"
     create: true # Allow users to create new documents in this collection
     slug: "{{year}}-{{month}}-{{day}}-{{slug}}" # Filename template, e.g., YYYY-MM-DD-title.md
+    path: '{{year}}/{{slug}}'
     summary: "{{filename}}.md"
     fields:
       - { label: "布局", name: "layout", widget: "string", default: "doc",required: true }
