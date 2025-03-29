@@ -14,10 +14,7 @@ collections:
     create: true
     nested:
       depth: 99
-    filter:
-      field: extension
-      value: md
-    summary: "{{filename}}"
+    summary: "{{filename}}.{{extension}}"
     editor:
       preview: false
     fields:
