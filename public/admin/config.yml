@@ -1,14 +1,14 @@
 backend:
   name: git-gateway
-  branch: master # Branch to update (optional; defaults to master)
+  branch: master
 
-media_folder: public/img
+media_folder: public/img  # 保持图片存储在静态目录
 public_folder: /img
 
 collections:
   - name: 'guide'
     label: 'Guide'
-    folder: '/'
+    folder: 'src'
     create: true
     slug: '{{slug}}'
     editor:
