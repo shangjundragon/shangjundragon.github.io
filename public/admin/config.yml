@@ -9,7 +9,7 @@ collections:
   - name: 'guide'
     label: '文章管理'
     label_singular: '文章'
-    folder: 'src'
+    folder: 'src/'
     create: true
     nested:
       depth: 99
