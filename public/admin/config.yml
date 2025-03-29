@@ -6,62 +6,15 @@ media_folder: public/img
 public_folder: /img
 
 collections:
-  - name: 'technology'
-    label: '技术文章'
-    folder: 'src/technology/'
-    identifier_field: 'title'
-    filter: '(.*)\.md$'  # 正则匹配所有md文件
-    fields:
-      - { label: "标题", name: "title", widget: "string" }
-      - { label: "正文", name: "body", widget: "markdown" }
-    # 目录树配置
-    view:
-      tree:
-        key: 'dirname'  # 按目录结构分组
-        value: '{{dirname}}'  # 显示完整路径
-    # 文件路径生成规则
-    slug: '{{dirname}}/{{slug}}'
-    path: '{{dirname}}/{{slug}}'
-    # 允许创建嵌套目录
-    create: true
-    nested:
-      depth: 10
-      summary: '目录 > {{dirname}}'
-    # 文件过滤配置
-    files:
-      - label: '文章'
-        name: 'article'
-        file: '{{dirname}}/{{slug}}.md'
+  - name: "pages"
+    label: "All Pages"
+    files: # 使用 files 而非 folder 实现递归扫描
+      - label: "Page"
+        name: "page"
+        file: "src/**/*.md"  # 匹配 docs 下所有层级的 .md 文件
         fields:
-          - { label: "标题", name: "title", widget: "string" }
-          - { label: "正文", name: "body", widget: "markdown" }
-
-  - name: 'life'
-    label: '生活文章'
-    folder: 'src/life/'
-    identifier_field: 'title'
-    filter: '(.*)\.md$'  # 正则匹配所有md文件
-    fields:
-      - { label: "标题", name: "title", widget: "string" }
-      - { label: "正文", name: "body", widget: "markdown" }
-    # 目录树配置
-    view:
-      tree:
-        key: 'dirname'  # 按目录结构分组
-        value: '{{dirname}}'  # 显示完整路径
-    # 文件路径生成规则
-    slug: '{{dirname}}/{{slug}}'
-    path: '{{dirname}}/{{slug}}'
-    # 允许创建嵌套目录
-    create: true
+          - { name: "title", label: "标题", widget: "string" }
+          - { name: "content", label: "正文", widget: "markdown" }
     nested:
-      depth: 10
-      summary: '目录 > {{dirname}}'
-    # 文件过滤配置
-    files:
-      - label: '文章'
-        name: 'article'
-        file: '{{dirname}}/{{slug}}.md'
-        fields:
-          - { label: "标题", name: "title", widget: "string" }
-          - { label: "正文", name: "body", widget: "markdown" }
+      depth: 20  # 允许无限级嵌套目录
+      summary: "{{title}} ({{path}})"  # 显示目录树时展示路径
