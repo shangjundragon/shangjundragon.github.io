@@ -1,11 +1,8 @@
 ---
-{
-  title: "Vue配置keep-alive缓存不生效",
-  createDate: "2025-03-27 11:12",
-  tabs: [ 'technology' ],
-  sidebar: false,
-  layout: 'doc'
-}
+layout: doc
+title: Vue配置keep-alive缓存不生效
+createDate: 2025-03-27 11:12
+tabs: technology,
 ---
 
 ## 问题描述说明
