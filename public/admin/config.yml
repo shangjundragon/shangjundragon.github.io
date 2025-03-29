@@ -13,10 +13,11 @@ collections:
     create: true
     nested:
       depth: 99
+    path: "{{dirname}}/{{slug}}"  # 关键配置：包含路径的文件名
     slug: '{{slug}}'
-    summary: "{{title}} - {{dirname}}"
+    summary: "{{filename}}" # 显示文件名而非标题
     editor:
-      preview: false
+      preview: true
     fields:
       - { label: '标题', name: 'title', widget: 'string' }
       - { label: '正文', name: 'body', widget: 'markdown' }
