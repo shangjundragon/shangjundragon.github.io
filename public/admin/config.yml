@@ -38,17 +38,20 @@ collections:
       - label: 文档标题
         name: title
         widget: string
+        required: true
       - label: 创建时间
         name: createDate
         widget: string
+        required: true
       - label: 模块
         name: tabs
         widget: list
-        default: doc
+        required: true
       - label: 布局
         name: layout
         widget: string
         default: doc
+        required: true
       - label: 内容
         name: body
         widget: markdown
